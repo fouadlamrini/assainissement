@@ -7,15 +7,15 @@
 export const companyConfig = {
   name: "HydroAssainissement",
   phone: "+33189204050",
-  phoneFormatted: "01 89 20 40 50",
-  whatsapp: "+33600000000",
+  phoneFormatted: "+212622461937",
+  whatsapp: "+212622461937",
   whatsappMessage: "Bonjour, j'ai besoin d'une intervention d'urgence pour mes canalisations.",
-  email: "contact@hydro-assainissement.fr",
+  email: "fouad11.lamrini@gmail.com",
   address: {
-    street: "12 Rue de la Paix",
-    city: "Paris",
-    zipCode: "75002",
-    country: "France"
+    street: "Jamal eddin afghani",
+    city: "Nador",
+    zipCode: "62000",
+    country: "Maroc"
   },
   hours: "Disponibilité 24h/24 et 7j/7",
   geo: {
