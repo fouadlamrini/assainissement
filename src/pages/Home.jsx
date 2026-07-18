@@ -24,7 +24,7 @@ const localSeoConfig = {
   title: "Débouchage Canalisation 24h/7j - Intervention Rapide 30 Min",
   description: "Entreprise d'assainissement et débouchage de canalisation en urgence. Camion hydrocureur haute pression, inspection caméra vidéo HD. Devis gratuit.",
   keywords: "débouchage canalisation, curage évier, urgence plombier, hydrocurage, inspection caméra, assainissement fosse septique, toilette bouchée",
-  url: "https://merzedia.com",
+  url: "https://assainissement-theta.vercel.app/",
   ogImage: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80"
 };
 
