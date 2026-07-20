@@ -19,7 +19,7 @@ export default function Navbar() {
           {/* Logo Zone */}
           <a href="#" className="flex items-center gap-2 block h-12">
             <img 
-              src="/assets/logo.png" 
+              src="/assets/logo3.png" 
               alt="Logo" 
               className="h-full w-auto object-contain"
             />

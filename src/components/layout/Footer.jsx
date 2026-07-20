@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Footer Logo */}
           <div className="h-10 block">
             <img 
-              src="/assets/logo.png" 
+              src="/assets/logo3.png" 
               alt="Logo" 
               className="h-full w-auto object-contain " 
               /* brightness-0 invert كتحول اللوغو للون الأبيض باش يجي متناسق مع الخلفية المظلمة */
