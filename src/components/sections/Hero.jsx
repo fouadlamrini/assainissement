@@ -1,6 +1,6 @@
 /**
  * src/components/sections/Hero.jsx
- * 
+ *
  * Section Hero Premium orientée conversion maximale.
  * Intègre une image de fond via CDN et corrige l'erreur d'importation SEO.
  */
@@ -12,15 +12,15 @@ import { companyConfig, assetsConfig } from "../../data/siteData"; // تم إص�
 
 export default function Hero() {
   return (
-    <section 
-      id="accueil" 
+    <section
+      id="accueil"
       className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-slate-900 overflow-hidden text-white"
     >
       {/* خلفية صورة الـ CDN مع طبقة تظليل داكنة فخمة */}
       <div className="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
-        <img 
-          src={assetsConfig.heroBg} 
-          alt="Intervention Assainissement" 
+        <img
+          src={assetsConfig.heroBg}
+          alt="Intervention Assainissement"
           className="w-full h-full object-cover"
         />
       </div>
@@ -33,7 +33,6 @@ export default function Hero() {
 
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
           {/* Bloc Texte & Actions Principal */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Tag d'urgence supérieur */}
@@ -52,38 +51,57 @@ export default function Hero() {
 
             {/* Description du service */}
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Intervention ultra-rapide en <strong className="text-white font-semibold">30 minutes</strong> pour tout problème d'engorgement, d'assainissement ou de fosse septique. Inspecteurs agréés et camions hydrocureurs disponibles jour et nuit.
+              Intervention ultra-rapide en{" "}
+              <strong className="text-white font-semibold">30 minutes</strong>{" "}
+              pour tout problème d'engorgement, d'assainissement ou de fosse
+              septique. Inspecteurs agréés et camions hydrocureurs disponibles
+              jour et nuit.
             </p>
 
             {/* Boutons d'Action Clés (Focus Conversion) */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
-              <PhoneButton size="lg" className="w-full sm:w-auto text-center justify-center shadow-xl shadow-blue-600/20" />
-              <WhatsAppButton size="lg" className="w-full sm:w-auto text-center justify-center shadow-xl shadow-emerald-600/10" />
+              <PhoneButton
+                size="lg"
+                className="w-full sm:w-auto text-center justify-center shadow-xl shadow-blue-600/20"
+              />
+              <WhatsAppButton
+                size="lg"
+                className="w-full sm:w-auto text-center justify-center shadow-xl shadow-emerald-600/10"
+              />
             </div>
 
             {/* Évaluation & Preuve Sociale Directe */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-6 border-t border-slate-800 max-w-xl lg:max-w-none">
               <div className="flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-amber-400 text-amber-400"
+                  />
                 ))}
               </div>
               <p className="text-sm font-medium text-slate-300 text-center sm:text-left">
-                <span className="font-bold text-white">4.9/5 sur Google Maps</span> (Plus de 450 avis d'interventions certifiées en Île-de-France)
+                <span className="font-bold text-white">
+                  4.9/5 sur Google Maps
+                </span>{" "}
+                (Plus de 450 clients satisfaits partout au Maroc)
               </p>
             </div>
           </div>
 
           {/* Bloc Graphique Droite - Grille d'avantages Premium */}
           <div className="lg:col-span-5 grid sm:grid-cols-2 gap-4 lg:pl-4 text-slate-900">
-            
             <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-blue-200 transition-all duration-300">
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-950 mb-1">Arrivée en 30 Min</h3>
-                <p className="text-xs text-slate-500 leading-normal">Camions hydrocureurs géolocalisés en temps réel.</p>
+                <h3 className="text-sm font-bold text-slate-950 mb-1">
+                  Arrivée en 30 Min
+                </h3>
+                <p className="text-xs text-slate-500 leading-normal">
+                  Camions hydrocureurs géolocalisés en temps réel.
+                </p>
               </div>
             </div>
 
@@ -92,8 +110,12 @@ export default function Hero() {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-950 mb-1">Prix Fixe & Transparent</h3>
-                <p className="text-xs text-slate-500 leading-normal">Devis gratuit écrit obligatoirement fourni avant travaux.</p>
+                <h3 className="text-sm font-bold text-slate-950 mb-1">
+                  Prix Fixe & Transparent
+                </h3>
+                <p className="text-xs text-slate-500 leading-normal">
+                  Devis gratuit écrit obligatoirement fourni avant travaux.
+                </p>
               </div>
             </div>
 
@@ -102,8 +124,12 @@ export default function Hero() {
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-950 mb-1">Agrément National</h3>
-                <p className="text-xs text-slate-500 leading-normal">Assurance décennale et respect strict de l'environnement.</p>
+                <h3 className="text-sm font-bold text-slate-950 mb-1">
+                  Agrément National
+                </h3>
+                <p className="text-xs text-slate-500 leading-normal">
+                  Assurance décennale et respect strict de l'environnement.
+                </p>
               </div>
             </div>
 
@@ -112,13 +138,15 @@ export default function Hero() {
                 Caméra HD
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-950 mb-1">Inspection Vidéo</h3>
-                <p className="text-xs text-slate-500 leading-normal">Localisation millimétrique des bouchons ou cassures.</p>
+                <h3 className="text-sm font-bold text-slate-950 mb-1">
+                  Inspection Vidéo
+                </h3>
+                <p className="text-xs text-slate-500 leading-normal">
+                  Localisation millimétrique des bouchons ou cassures.
+                </p>
               </div>
             </div>
-
           </div>
-
         </div>
       </Container>
     </section>
