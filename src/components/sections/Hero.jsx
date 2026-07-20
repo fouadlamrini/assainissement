@@ -44,7 +44,7 @@ export default function Hero() {
             {/* Titre H1 Optimisé SEO & Impact Visuel */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-white tracking-tight leading-[1.1] mb-6">
               Débouchage & Curage <br />
-              <span className="text-blue-400 relative inline-block">
+              <span className="text-[#14a992] relative inline-block">
                 de Canalisation
               </span>
             </h1>
