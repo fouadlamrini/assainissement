@@ -63,7 +63,7 @@ const servicesList = [
 
 export default function Services() {
   // إعدادات الواتساب الأساسية
-  const whatsappNumber = "+212622461937"; // عوّض هاد الرقم برقم الواتساب الحقيقي ديال الخدمة
+  const whatsappNumber = "+212668029443"; // عوّض هاد الرقم برقم الواتساب الحقيقي ديال الخدمة
   const baseUrl = "https://assainissement-theta.vercel.app/"; // الدومين ديالك باش يخدم الـ Preview ديال الصور ف الواتساب
 
   return (

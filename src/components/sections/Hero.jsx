@@ -87,7 +87,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-emerald-200 transition-all duration-300 sm:translate-y-4">
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-emerald-200 transition-all duration-300 ">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
                 <ShieldCheck className="w-5 h-5" />
               </div>
@@ -107,7 +107,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-amber-200 transition-all duration-300 sm:translate-y-4">
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-amber-200 transition-all duration-300 ">
               <div className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded w-max mb-4 uppercase tracking-wider">
                 Caméra HD
               </div>

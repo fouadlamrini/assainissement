@@ -33,11 +33,11 @@ export default function Navbar() {
             <a href="#contact" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">Contact</a>
             
             <a 
-              href="tel:+212622461937" 
+              href="tel:+212668029443" 
               className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-md shadow-blue-200"
             >
               <Phone className="w-4 h-4" />
-              +212622461937
+              +212668029443
             </a>
           </div>
 

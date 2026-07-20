@@ -14,7 +14,7 @@ export default function FloatingTriggers() {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   // إعدادات الواتساب محلياً لقطع أخطاء الـ Import وتأمين اشتغال الرابط فوراً
-  const whatsappNumber = "+212622461937"; // عوّض هاد الرقم برقم الواتساب الحقيقي ديال الخدمة (بدون + أو أصفار في البداية)
+  const whatsappNumber = "+212668029443"; // عوّض هاد الرقم برقم الواتساب الحقيقي ديال الخدمة (بدون + أو أصفار في البداية)
   const defaultMessage = "Bonjour, je souhaite demander un devis en urgence pour un service d'assainissement.";
   
   const encodedMessage = encodeURIComponent(defaultMessage);

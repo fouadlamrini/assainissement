@@ -6,9 +6,9 @@
 
 export const companyConfig = {
   name: "HydroAssainissement",
-  phone: "+33189204050",
-  phoneFormatted: "+212622461937",
-  whatsapp: "+212622461937",
+  phone: "+212668029443",
+  phoneFormatted: "+212668029443",
+  whatsapp: "+212668029443",
   whatsappMessage: "Bonjour, j'ai besoin d'une intervention d'urgence pour mes canalisations.",
   email: "fouad11.lamrini@gmail.com",
   address: {
