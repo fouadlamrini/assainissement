@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="accueil"
-      className="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-slate-900 overflow-hidden text-white"
+      className="relative pt-4 pb-20 md:pt-4 md:pb-32 bg-slate-900 overflow-hidden text-white"
     >
       {/* خلفية صورة الـ CDN مع طبقة تظليل داكنة فخمة */}
       <div className="absolute inset-0 z-0 opacity-40 mix-blend-overlay">

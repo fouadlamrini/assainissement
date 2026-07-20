@@ -61,7 +61,7 @@ export default function Navbar() {
           <div className="hidden md:flex flex-1 justify-end">
             <a
               href="tel:+212668029443"
-              className="inline-flex items-center gap-2 bg-[#14a992] text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-[#118f7c] transition-all shadow-md"
+              className="inline-flex items-center gap-2 bg-[#85ca51] text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-[#118f7c] transition-all shadow-md"
             >
               <Phone className="w-4 h-4" />
               +212 668 029 443
