@@ -142,10 +142,11 @@ export const PhoneButton = ({ className, size = "md", variant = "primary" }) => 
  */
 export const WhatsAppButton = ({ className, size = "md" }) => {
   const encodedMessage = encodeURIComponent(companyConfig.whatsappMessage);
+
   return (
     <Button
       as="a"
-      href={`https://wa.me/${companyConfig.whatsapp.replace('+', '')}?text=${encodedMessage}`}
+      href={`https://wa.me/${companyConfig.whatsapp.replace("+", "")}?text=${encodedMessage}`}
       target="_blank"
       rel="noopener noreferrer"
       variant="emerald"
@@ -153,7 +154,11 @@ export const WhatsAppButton = ({ className, size = "md" }) => {
       className={cn("gap-2.5", className)}
       aria-label="Contacter un technicien d'assainissement sur WhatsApp"
     >
-      <MessageSquare className="w-5 h-5" />
+      <img
+  src="/assets/whatsapp.jpg"
+  alt="WhatsApp"
+  className="w-8 h-8 rounded-full object-cover"
+/>
       <span>WhatsApp Rapide</span>
     </Button>
   );

@@ -35,7 +35,9 @@ export default function ContactCTA() {
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif tracking-tight leading-tight">
                 Besoin d'un dépannage <br className="hidden sm:inline" />
-                <span className="text-blue-400">ou d'un devis gratuit ?</span>
+               <span className="bg-gradient-to-r from-[#14a992] to-[#85ca51] bg-clip-text text-transparent">
+  ou d'un devis gratuit ?
+</span>
               </h2>
               
               <p className="text-slate-400 text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -59,14 +61,20 @@ export default function ContactCTA() {
                 <span className="text-xs font-bold text-center lg:text-left text-slate-400 tracking-wider uppercase block">
                   📞 Ligne Urgence Principale :
                 </span>
-                <PhoneButton size="lg" className="w-full justify-center text-center shadow-xl shadow-blue-500/10" />
+<PhoneButton
+  size="lg"
+  className="w-full justify-center text-center !bg-[#85ca51] hover:!bg-[#74b346] !text-white border-none shadow-xl shadow-[#85ca51]/30"
+/>
               </div>
 
               <div className="flex flex-col gap-2 w-full">
                 <span className="text-xs font-bold text-center lg:text-left text-slate-400 tracking-wider uppercase block">
                   💬 Échange WhatsApp instantané :
                 </span>
-                <WhatsAppButton size="lg" className="w-full justify-center text-center shadow-xl shadow-emerald-500/10" />
+                <WhatsAppButton
+  size="lg"
+  className="w-full justify-center text-center !bg-[#14a992] hover:!bg-[#108c79] !text-white border-none shadow-xl shadow-[#14a992]/30"
+/>
               </div>
             </div>
 
