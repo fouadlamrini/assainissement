@@ -10,7 +10,6 @@ import React from "react";
 import * as Icons from "lucide-react";
 import { Container, Section, SectionTitle, IconBox } from "../ui/BaseComponents";
 
-// مصفوفة البيانات مدمجة محلياً لضمان عدم حدوث خطأ Import أو استدعاء مفقود
 const advantagesData = [
   {
     icon: "Clock",
@@ -62,18 +61,17 @@ export default function WhyChooseUs() {
           {/* Bloc de Droite : Grille des 4 Avantages Majeurs */}
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
             {advantagesData.map((advantage, index) => {
-              // Extraction dynamique de l'icône, ou repli sur ShieldCheck si l'icône n'existe pas
               const TargetIcon = Icons[advantage.icon] || Icons.ShieldCheck;
               
               return (
                 <div 
                   key={index}
-                  className="group bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-200/80 transition-all duration-300"
+                  className="group bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-[#14a992]/30 transition-all duration-300"
                 >
                   <div className="mb-5">
-                    <IconBox icon={TargetIcon} variant="blue" />
+                    <IconBox icon={TargetIcon} variant="emerald" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-950 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-950 mb-2 group-hover:text-[#14a992] transition-colors">
                     {advantage.title}
                   </h3>
                   <p className="text-slate-600 text-sm leading-relaxed">

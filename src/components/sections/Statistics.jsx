@@ -9,7 +9,6 @@
 import React from "react";
 import { Container, Section } from "../ui/BaseComponents";
 
-// مصفوفة الإحصائيات مدمجة محلياً لقطع الخطأ وضمان استقرار الـ Build
 const statisticsData = [
   {
     value: "+1500",
@@ -31,7 +30,7 @@ const statisticsData = [
 
 export default function Statistics() {
   return (
-    <Section id="statistiques" className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16 md:py-20">
+    <Section id="statistiques" className="bg-gradient-to-r from-[#14a992] to-[#118f7c] text-white py-16 md:py-20">
       <Container>
         {/* Grille responsive des indicateurs de performance */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
@@ -46,10 +45,10 @@ export default function Statistics() {
               </span>
               
               {/* Séparateur minimaliste */}
-              <div className="h-0.5 w-8 bg-amber-400 opacity-80 rounded-full" />
+              <div className="h-0.5 w-8 bg-white/80 rounded-full" />
               
               {/* Intitulé clair et lisible */}
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-100 max-w-[180px]">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-50 max-w-[180px]">
                 {stat.label}
               </span>
             </div>

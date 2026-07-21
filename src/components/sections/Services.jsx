@@ -5,7 +5,6 @@
  * Redirection directe vers WhatsApp avec message personnalisé par service.
  */
 
-
 import { 
   Droplet, 
   Wrench, 
@@ -62,9 +61,8 @@ const servicesList = [
 ];
 
 export default function Services() {
-  // إعدادات الواتساب الأساسية
-  const whatsappNumber = "+212668029443"; // عوّض هاد الرقم برقم الواتساب الحقيقي ديال الخدمة
-  const baseUrl = "https://assainissement-theta.vercel.app/"; // الدومين ديالك باش يخدم الـ Preview ديال الصور ف الواتساب
+  const whatsappNumber = "+212668029443";
+  const baseUrl = "https://assainissement-theta.vercel.app/";
 
   return (
     <Section id="services" className="bg-slate-50">
@@ -79,17 +77,14 @@ export default function Services() {
           {servicesList.map((service, index) => {
             const IconComponent = service.icon;
             
-            // 1. بناء نص الرسالة بالترتيب المطلوب
             const textMessage = `سلام اريد هذه الخدمة: *${service.title}*\n\nرابط الصورة للمعاينة:\n${baseUrl}${service.image}`;
-            
-            // 2. ترميز النص بـ URL Encode باش يقبله الرابط بشكل صحيح ومقاد
             const encodedText = encodeURIComponent(textMessage);
             const whatsappServiceUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
 
             return (
               <div 
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-[#14a992]/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="relative h-48 w-full overflow-hidden bg-slate-200">
@@ -105,11 +100,11 @@ export default function Services() {
                   </div>
 
                   <div className="p-6">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-[#14a992]/10 text-[#14a992] flex items-center justify-center mb-4 group-hover:bg-[#14a992] group-hover:text-white transition-all duration-300 shadow-sm">
                       <IconComponent className="w-6 h-6" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#14a992] transition-colors duration-200">
                       {service.title}
                     </h3>
                     <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -123,7 +118,7 @@ export default function Services() {
                     href={whatsappServiceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl bg-blue-600 border border-blue-600 text-sm font-bold text-white hover:bg-blue-700 hover:border-blue-700 transition-all duration-200 shadow-md shadow-blue-200/50"
+                    className="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl bg-[#14a992] border border-[#14a992] text-sm font-bold text-white hover:bg-[#118f7c] hover:border-[#118f7c] transition-all duration-200 shadow-md shadow-[#14a992]/20"
                   >
                     Demander ce service
                   </a>

@@ -19,25 +19,25 @@ export default function ContactCTA() {
         <div className="bg-slate-950 rounded-3xl p-8 md:p-14 lg:p-16 border border-slate-800 shadow-2xl relative overflow-hidden text-white -translate-y-12">
           
           {/* Cercles décoratifs premium de fond */}
-          <div className="absolute inset-0 pointer-events-none opacity-30">
-            <div className="absolute top-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-blue-600/30 blur-3xl" />
-            <div className="absolute bottom-[-30%] left-[-10%] w-[350px] h-[350px] rounded-full bg-emerald-600/20 blur-3xl" />
+          <div className="absolute inset-0 pointer-events-none opacity-25">
+            <div className="absolute top-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-[#14a992]/30 blur-3xl" />
+            <div className="absolute bottom-[-30%] left-[-10%] w-[350px] h-[350px] rounded-full bg-[#85ca51]/20 blur-3xl" />
           </div>
 
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Bloc d'explications textuelles */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-                <Zap className="w-3.5 h-3.5 fill-blue-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2 bg-[#14a992]/10 border border-[#14a992]/30 text-[#14a992] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
+                <Zap className="w-3.5 h-3.5 fill-[#14a992] animate-pulse" />
                 Intervention Immédiate 24h/7j
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif tracking-tight leading-tight">
                 Besoin d'un dépannage <br className="hidden sm:inline" />
-               <span className="bg-gradient-to-r from-[#14a992] to-[#85ca51] bg-clip-text text-transparent">
-  ou d'un devis gratuit ?
-</span>
+                <span className="bg-gradient-to-r from-[#14a992] to-[#85ca51] bg-clip-text text-transparent">
+                  ou d'un devis gratuit ?
+                </span>
               </h2>
               
               <p className="text-slate-400 text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -47,10 +47,10 @@ export default function ContactCTA() {
               {/* Badges de réassurance technique secondaires */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-3 gap-x-6 text-xs text-slate-400 pt-4">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" /> Assurance Décennale Agréée
+                  <ShieldCheck className="w-4 h-4 text-[#85ca51]" /> Assurance Décennale Agréée
                 </span>
                 <span className="flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" /> Devis écrit 100% Gratuit
+                  <ShieldCheck className="w-4 h-4 text-[#85ca51]" /> Devis écrit 100% Gratuit
                 </span>
               </div>
             </div>
@@ -61,10 +61,10 @@ export default function ContactCTA() {
                 <span className="text-xs font-bold text-center lg:text-left text-slate-400 tracking-wider uppercase block">
                   📞 Ligne Urgence Principale :
                 </span>
-<PhoneButton
-  size="lg"
-  className="w-full justify-center text-center !bg-[#85ca51] hover:!bg-[#74b346] !text-white border-none shadow-xl shadow-[#85ca51]/30"
-/>
+                <PhoneButton
+                  size="lg"
+                  className="w-full justify-center text-center !bg-[#85ca51] hover:!bg-[#74b346] !text-white border-none shadow-xl shadow-[#85ca51]/30 transition-all duration-300"
+                />
               </div>
 
               <div className="flex flex-col gap-2 w-full">
@@ -72,9 +72,9 @@ export default function ContactCTA() {
                   💬 Échange WhatsApp instantané :
                 </span>
                 <WhatsAppButton
-  size="lg"
-  className="w-full justify-center text-center !bg-[#14a992] hover:!bg-[#108c79] !text-white border-none shadow-xl shadow-[#14a992]/30"
-/>
+                  size="lg"
+                  className="w-full justify-center text-center !bg-[#14a992] hover:!bg-[#108c79] !text-white border-none shadow-xl shadow-[#14a992]/30 transition-all duration-300"
+                />
               </div>
             </div>
 

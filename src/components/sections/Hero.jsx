@@ -8,7 +8,7 @@
 import React from "react";
 import { ShieldCheck, Clock, Award, Star } from "lucide-react";
 import { Container, PhoneButton, WhatsAppButton } from "../ui/BaseComponents";
-import { companyConfig, assetsConfig } from "../../data/siteData"; // تم إصلاح الاستيراد هنا
+import { companyConfig, assetsConfig } from "../../data/siteData";
 
 export default function Hero() {
   return (
@@ -27,8 +27,8 @@ export default function Hero() {
 
       {/* تأثير إضاءة ملون خلفي */}
       <div className="absolute inset-0 pointer-events-none opacity-30 z-0">
-        <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-blue-600/30 blur-3xl" />
-        <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full bg-emerald-600/20 blur-2xl" />
+        <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#14a992]/30 blur-3xl" />
+        <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full bg-[#85ca51]/20 blur-2xl" />
       </div>
 
       <Container className="relative z-10">
@@ -43,10 +43,10 @@ export default function Hero() {
 
             {/* Titre H1 Optimisé SEO & Impact Visuel */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif text-white tracking-tight leading-[1.1] mb-6">
-              Débouchage & Curage <br />
-         <span className="relative inline-block bg-gradient-to-r from-[#14a992] via-[#35b183] via-[#5fc067] to-[#85ca51] bg-clip-text text-transparent">
-  de Canalisation
-</span>
+              Débouchage &amp; Curage <br />
+              <span className="relative inline-block bg-gradient-to-r from-[#14a992] via-[#35b183] via-[#5fc067] to-[#85ca51] bg-clip-text text-transparent">
+                de Canalisation
+              </span>
             </h1>
 
             {/* Description du service */}
@@ -60,19 +60,18 @@ export default function Hero() {
 
             {/* Boutons d'Action Clés (Focus Conversion) */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
-             <PhoneButton
-  size="lg"
-  className="w-full sm:w-auto justify-center bg-[#85ca51] hover:bg-[#74b346] text-white border-none shadow-xl shadow-[#85ca51]/30"
-/>
-             <WhatsAppButton
-  size="lg"
-  className="w-full sm:w-auto justify-center bg-[#14a992] hover:bg-[#108c79] text-white border-none shadow-xl shadow-[#14a992]/30"
-/>
+              <PhoneButton
+                size="lg"
+                className="w-full sm:w-auto justify-center bg-[#85ca51] hover:bg-[#74b346] text-white border-none shadow-xl shadow-[#85ca51]/30 transition-all duration-300"
+              />
+              <WhatsAppButton
+                size="lg"
+                className="w-full sm:w-auto justify-center bg-[#14a992] hover:bg-[#108c79] text-white border-none shadow-xl shadow-[#14a992]/30 transition-all duration-300"
+              />
             </div>
 
             {/* Évaluation & Preuve Sociale Directe */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-6 border-t border-slate-800 max-w-xl lg:max-w-none">
-          
               <p className="text-sm font-medium text-slate-300 text-center sm:text-left">
                 Plus de 10 clients satisfaits partout au Maroc
               </p>
@@ -81,8 +80,8 @@ export default function Hero() {
 
           {/* Bloc Graphique Droite - Grille d'avantages Premium */}
           <div className="lg:col-span-5 grid sm:grid-cols-2 gap-4 lg:pl-4 text-slate-900">
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-blue-200 transition-all duration-300">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-[#14a992]/40 transition-all duration-300">
+              <div className="w-10 h-10 rounded-xl bg-[#14a992]/10 text-[#14a992] flex items-center justify-center mb-4">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
@@ -95,13 +94,13 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-emerald-200 transition-all duration-300 ">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-[#85ca51]/40 transition-all duration-300">
+              <div className="w-10 h-10 rounded-xl bg-[#85ca51]/10 text-[#85ca51] flex items-center justify-center mb-4">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="text-sm font-bold text-slate-950 mb-1">
-                  Prix Fixe & Transparent
+                  Prix Fixe &amp; Transparent
                 </h3>
                 <p className="text-xs text-slate-500 leading-normal">
                   Devis gratuit écrit obligatoirement fourni avant travaux.
@@ -109,8 +108,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-blue-200 transition-all duration-300">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-[#14a992]/40 transition-all duration-300">
+              <div className="w-10 h-10 rounded-xl bg-[#14a992]/10 text-[#14a992] flex items-center justify-center mb-4">
                 <Award className="w-5 h-5" />
               </div>
               <div>
@@ -123,8 +122,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-amber-200 transition-all duration-300 ">
-              <div className="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded w-max mb-4 uppercase tracking-wider">
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md flex flex-col justify-between hover:border-[#85ca51]/40 transition-all duration-300">
+              <div className="text-xs font-bold text-[#85ca51] bg-[#85ca51]/10 px-2 py-1 rounded w-max mb-4 uppercase tracking-wider">
                 Caméra HD
               </div>
               <div>

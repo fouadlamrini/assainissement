@@ -10,26 +10,25 @@ import { Container, Section, SectionTitle } from "../ui/BaseComponents";
 import { TestimonialCard } from "../ui/Cards";
 import { CheckCircle } from "lucide-react";
 
-// مصفوفة آراء الزبناء مدمجة محلياً لقطع الخطأ وضمان استقرار الـ Build
 const testimonialsData = [
   {
-    name: "Marc Durand",
-    role: "Particulier - Paris 15e",
-    content: "Intervention en pleine nuit pour un évier complètement bouché. Le technicien est arrivé en 25 minutes, le tarif annoncé au téléphone a été respecté. Travail propre et soigné !",
+    name: "Mohamed El Amrani",
+    role: "Particulier - Tanger",
+    content: "Intervention rapide pour un évier complètement bouché. Le technicien est arrivé en 25 minutes, le tarif annoncé au téléphone a été respecté. Travail propre et soigné !",
     rating: 5,
     date: "Il y a 2 semaines"
   },
   {
     name: "Sophie Lemaitre",
-    role: "Syndic de Copropriété",
+    role: "Syndic de Copropriété - Casablanca",
     content: "Nous travaillons avec cette entreprise pour le curage des colonnes de nos immeubles. Équipe très professionnelle, équipement hydrocureur performant et rapports clairs avec photos.",
     rating: 5,
     date: "Il y a 1 mois"
   },
   {
     name: "Karim Benali",
-    role: "Propriétaire Restaurant",
-    content: "Urgence absolue un samedi soir sur nos canalisations principales. Intervention ultra-rapide à l'aide de l'inspection caméra qui a localisé le bouchon de graisse immédiatement. Merci pour votre réactivité !",
+    role: "Propriétaire Restaurant - Tanger",
+    content: "Urgence absolue un samedi soir sur nos canalisations principales. Intervention ultra-rapide à l'aide de l'inspection caméra qui a localisé le bouchon de graisse immédiatement. Merci !",
     rating: 5,
     date: "Il y a 3 jours"
   }
@@ -52,14 +51,14 @@ export default function Testimonials() {
             <TestimonialCard 
               key={index} 
               testimonial={testimonial}
-              className="bg-white shadow-md shadow-slate-100/50"
+              className="bg-white shadow-md shadow-slate-100/50 hover:border-[#14a992]/30 transition-colors duration-300"
             />
           ))}
         </div>
 
         {/* Badge inférieur de certification collective */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 bg-white border border-slate-200/80 px-6 py-4 rounded-2xl max-w-2xl mx-auto shadow-sm">
-          <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+          <CheckCircle className="w-5 h-5 text-[#14a992] flex-shrink-0" />
           <p className="text-sm font-semibold text-slate-800 text-center sm:text-left">
             Tous nos avis sont issus d'interventions réelles et certifiées par bons de chantiers signés.
           </p>

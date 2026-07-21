@@ -11,11 +11,10 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 import { Container, Section, SectionTitle } from "../ui/BaseComponents";
 import { cn } from "../../utils/cn";
 
-// مصفوفة الأسئلة الشائعة مدمجة محلياً لقطع الخطأ نهائياً وتأمين الـ Build
 const faqData = [
   {
     question: "Combien coûte une intervention de débouchage de canalisation ?",
-    answer: "Nos tarifs sont transparents و fixés à l'avance. Un devis gratuit écrit vous est systématiquement présenté avant le début des travaux. Le prix dépend de la complexité (débouchage manuel ou hydrocurage par camion haute pression)."
+    answer: "Nos tarifs sont transparents et fixés à l'avance. Un devis gratuit écrit vous est systématiquement présenté avant le début des travaux. Le prix dépend de la complexité (débouchage manuel ou hydrocurage par camion haute pression)."
   },
   {
     question: "Quel est votre délai d'intervention en cas d'urgence ?",
@@ -63,7 +62,7 @@ export default function FAQ() {
                 className={cn(
                   "border rounded-2xl transition-all duration-300 overflow-hidden",
                   isOpen 
-                    ? "bg-blue-50/30 border-blue-200/80 shadow-sm" 
+                    ? "bg-[#14a992]/5 border-[#14a992]/40 shadow-sm" 
                     : "bg-white border-slate-100 hover:border-slate-200"
                 )}
               >
@@ -77,11 +76,11 @@ export default function FAQ() {
                   <div className="flex items-start gap-4 pr-4">
                     <HelpCircle className={cn(
                       "w-5 h-5 mt-0.5 flex-shrink-0 transition-colors duration-200",
-                      isOpen ? "text-blue-600" : "text-slate-400 group-hover:text-blue-500"
+                      isOpen ? "text-[#14a992]" : "text-slate-400 group-hover:text-[#14a992]"
                     )} />
                     <span className={cn(
                       "text-base font-bold tracking-tight transition-colors duration-200",
-                      isOpen ? "text-blue-900" : "text-slate-900"
+                      isOpen ? "text-[#118f7c]" : "text-slate-900"
                     )}>
                       {faq.question}
                     </span>
@@ -89,7 +88,7 @@ export default function FAQ() {
                   
                   <div className={cn(
                     "w-8 h-8 rounded-lg flex items-center justify-center bg-slate-50 border border-slate-100 text-slate-500 transition-transform duration-300 flex-shrink-0",
-                    isOpen && "transform rotate-180 bg-blue-100 border-blue-200 text-blue-600"
+                    isOpen && "transform rotate-180 bg-[#14a992]/10 border-[#14a992]/30 text-[#14a992]"
                   )}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
@@ -100,7 +99,7 @@ export default function FAQ() {
                   id={`faq-answer-${index}`}
                   className={cn(
                     "transition-all duration-300 ease-in-out origin-top",
-                    isOpen ? "max-h-[500px] opacity-100 border-t border-blue-100" : "max-h-0 opacity-0 pointer-events-none"
+                    isOpen ? "max-h-[500px] opacity-100 border-t border-[#14a992]/15" : "max-h-0 opacity-0 pointer-events-none"
                   )}
                 >
                   <div className="p-5 md:p-6 text-sm sm:text-base text-slate-600 leading-relaxed bg-white/50">

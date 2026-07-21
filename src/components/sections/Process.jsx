@@ -9,7 +9,6 @@
 import React from "react";
 import { Container, Section } from "../ui/BaseComponents";
 
-// مصفوفة الخطوات مدمجة محلياً لضمان استقرار التطبيق وعدم حدوث أخطاء Import
 const processSteps = [
   {
     step: "01",
@@ -37,20 +36,20 @@ export default function Process() {
   return (
     <Section id="process" className="bg-slate-950 text-white relative">
       {/* Texture ou points lumineux premium de fond */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500/20 blur-3xl" />
+      <div className="absolute inset-0 pointer-events-none opacity-25">
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#14a992]/20 blur-3xl" />
       </div>
 
       <Container className="relative z-10">
         {/* En-tête adapté au thème sombre */}
         <div className="text-center mb-16 md:mb-20">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-400 bg-white/10 px-3 py-1.5 rounded-full mb-3">
-            Efficacité & Rapidité
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#14a992] bg-[#14a992]/15 border border-[#14a992]/30 px-3 py-1.5 rounded-full mb-3 backdrop-blur-sm">
+            Efficacité &amp; Rapidité
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-white tracking-tight leading-tight max-w-3xl mx-auto">
             4 Étapes Simples Pour Résoudre Votre Problème
           </h2>
-          <div className="h-1 w-16 bg-blue-500 mt-4 mx-auto rounded-full" />
+          <div className="h-1 w-16 bg-[#14a992] mt-4 mx-auto rounded-full" />
         </div>
 
         {/* Grille de Processus en étapes interconnectées */}
@@ -59,13 +58,13 @@ export default function Process() {
             <div key={index} className="relative group">
               {/* Ligne de connexion visuelle masquée sur mobile et sur la dernière étape */}
               {index < processSteps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[65%] w-full h-[2px] bg-gradient-to-r from-blue-500/40 to-transparent z-0" />
+                <div className="hidden lg:block absolute top-8 left-[65%] w-full h-[2px] bg-gradient-to-r from-[#14a992]/40 to-transparent z-0" />
               )}
 
               {/* Conteneur de l'étape */}
               <div className="relative z-10 space-y-4">
                 {/* Numéro stylisé premium */}
-                <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-xl font-extrabold text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 shadow-inner">
+                <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-xl font-extrabold text-[#14a992] group-hover:bg-[#14a992] group-hover:text-white group-hover:border-[#14a992] transition-all duration-300 shadow-inner">
                   {step.step}
                 </div>
 

@@ -46,14 +46,14 @@ export const SectionTitle = ({ title, subtitle, centered = true, className, ...p
   return (
     <div className={cn("mb-12 md:mb-16", centered && "text-center", className)} {...props}>
       {subtitle && (
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full mb-3">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#14a992] bg-[#14a992]/10 px-3 py-1.5 rounded-full mb-3">
           {subtitle}
         </span>
       )}
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-slate-950 tracking-tight leading-tight max-w-3xl mx-auto">
         {title}
       </h2>
-      <div className={cn("h-1 w-16 bg-blue-600 mt-4 rounded-full", centered && "mx-auto")} />
+      <div className={cn("h-1 w-16 bg-[#14a992] mt-4 rounded-full", centered && "mx-auto")} />
     </div>
   );
 };
@@ -73,14 +73,14 @@ export const Button = React.forwardRef(({
     <Component
       ref={ref}
       className={cn(
-        "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 transform active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
+        "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 transform active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#14a992] focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
         {
           // Styles de variantes luxe
-          "bg-blue-600 text-white shadow-lg shadow-blue-600/20 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5": variant === "primary",
+          "bg-[#14a992] text-white shadow-lg shadow-[#14a992]/20 hover:bg-[#118f7c] hover:shadow-xl hover:shadow-[#14a992]/30 hover:-translate-y-0.5": variant === "primary",
           "bg-slate-950 text-white shadow-lg shadow-slate-950/20 hover:bg-slate-900 hover:shadow-xl hover:-translate-y-0.5": variant === "dark",
           "bg-emerald-600 text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5": variant === "emerald",
           "bg-white text-slate-900 border border-slate-200 shadow-sm hover:bg-slate-50 hover:border-slate-300 hover:-translate-y-0.5": variant === "outline",
-          "text-blue-600 hover:text-blue-700 bg-blue-50/50 hover:bg-blue-50 px-4": variant === "ghost",
+          "text-[#14a992] hover:text-[#118f7c] bg-[#14a992]/10 hover:bg-[#14a992]/20 px-4": variant === "ghost",
         },
         {
           // Tailles
@@ -108,7 +108,7 @@ export const Badge = ({ children, className, variant = "info" }) => {
       {
         "bg-red-50 text-red-700 border border-red-100": variant === "danger",
         "bg-emerald-50 text-emerald-700 border border-emerald-100": variant === "success",
-        "bg-blue-50 text-blue-700 border border-blue-100": variant === "info",
+        "bg-[#14a992]/10 text-[#14a992] border border-[#14a992]/20": variant === "info",
         "bg-amber-50 text-amber-700 border border-amber-100": variant === "warning",
       },
       className
@@ -155,10 +155,10 @@ export const WhatsAppButton = ({ className, size = "md" }) => {
       aria-label="Contacter un technicien d'assainissement sur WhatsApp"
     >
       <img
-  src="/assets/whatsapp.jpg"
-  alt="WhatsApp"
-  className="w-8 h-8 rounded-full object-cover"
-/>
+        src="/assets/whatsapp.jpg"
+        alt="WhatsApp"
+        className="w-8 h-8 rounded-full object-cover"
+      />
       <span>WhatsApp Rapide</span>
     </Button>
   );
@@ -172,9 +172,8 @@ export const IconBox = ({ icon: Icon, className, variant = "blue" }) => {
     <div className={cn(
       "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm",
       {
-        "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white": variant === "blue",
+        "bg-[#14a992]/10 text-[#14a992] group-hover:bg-[#14a992] group-hover:text-white": variant === "blue" || variant === "emerald",
         "bg-slate-900 text-amber-400": variant === "dark",
-        "bg-emerald-50 text-emerald-600": variant === "emerald",
       },
       className
     )}>
