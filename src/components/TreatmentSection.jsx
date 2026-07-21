@@ -55,10 +55,10 @@ export default function TreatmentSection() {
               <img
                 src="/assets/protection.jpg"
                 alt="Traitement Anti-Nuisibles et Désinfection"
-                className="w-full h-[380px] object-cover"
+                className="w-full h-95 object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="inline-block px-3 py-1 bg-[#85ca51] text-white text-xs font-semibold rounded mb-1">
                   Protection Réseau
