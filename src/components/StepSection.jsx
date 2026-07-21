@@ -13,7 +13,7 @@ export default function StepSection() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200">
               <img
-                src="https://images.unsplash.com/photo-1574958269340-fa927503f3dd?auto=format&fit=crop&w=800&q=80"
+                src="/assets/recyclage.jpg"
                 alt="Station d'Épuration STEP"
                 className="w-full h-[420px] object-cover"
                 loading="lazy"

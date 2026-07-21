@@ -53,7 +53,7 @@ export default function TreatmentSection() {
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
+                src="/assets/protection.jpg"
                 alt="Traitement Anti-Nuisibles et Désinfection"
                 className="w-full h-[380px] object-cover"
                 loading="lazy"
