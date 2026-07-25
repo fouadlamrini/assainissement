@@ -2,11 +2,10 @@
  * src/components/sections/FAQ.jsx
  *
  * Section Foire Aux Questions interactive (Accordéon).
- * Répond aux questions les plus fréquentes des clients de manière
- * claire, professionnelle et crédible.
+ * Interactive & Scroll-Triggered Staggered Animations.
  */
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { Container, Section, SectionTitle } from "../ui/BaseComponents";
 import { cn } from "../../utils/cn";
@@ -16,46 +15,81 @@ const faqData = [
     question: "Comment est calculé le coût d'une intervention ?",
     answer:
       "Le tarif dépend de la nature de l'intervention, de l'accessibilité des installations et des travaux à réaliser. Une estimation est communiquée avant toute intervention lorsque cela est nécessaire.",
+    delay: "0.1s",
   },
   {
     question: "Dans quels délais pouvez-vous intervenir ?",
     answer:
       "Nous faisons notre maximum pour intervenir dans les meilleurs délais, en fonction de votre localisation, de l'urgence de la situation et de la disponibilité de nos équipes.",
+    delay: "0.2s",
   },
   {
     question: "Quels types d'installations prenez-vous en charge ?",
     answer:
       "Nous intervenons sur les éviers, lavabos, WC, douches, baignoires, canalisations, regards, fosses septiques, bacs à graisse et différents réseaux d'assainissement pour les particuliers comme pour les professionnels.",
+    delay: "0.3s",
   },
   {
     question: "Utilisez-vous du matériel professionnel ?",
     answer:
       "Oui. Selon les besoins de l'intervention, nous utilisons des équipements adaptés tels que l'hydrocurage ou l'inspection par caméra afin de faciliter le diagnostic et le traitement du problème.",
+    delay: "0.4s",
   },
   {
     question: "Comment demander une intervention ?",
     answer:
       "Vous pouvez nous contacter par téléphone ou via WhatsApp. Après avoir pris connaissance de votre demande, nous vous orienterons vers la solution la plus adaptée et organiserons l'intervention.",
+    delay: "0.5s",
   },
 ];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  return (
-    <Section id="faq" className="bg-white">
-      <Container>
-        <SectionTitle
-          subtitle="Questions Fréquentes"
-          title="Tout savoir sur nos interventions"
-          centered={true}
-        />
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
 
-        <div className="max-w-3xl mx-auto space-y-4">
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <Section id="faq" ref={sectionRef} className="bg-white py-20 overflow-hidden">
+      <Container>
+        {/* Title Header Animé */}
+        <div
+          className={`transition-all duration-700 ease-out transform ${
+            isVisible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-10 opacity-0"
+          }`}
+        >
+          <SectionTitle
+            subtitle="Questions Fréquentes"
+            title="Tout savoir sur nos interventions"
+            centered={true}
+          />
+        </div>
+
+        {/* Accordion Container */}
+        <div className="max-w-3xl mx-auto space-y-4 mt-12">
           {faqData.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -63,11 +97,17 @@ export default function FAQ() {
               <div
                 key={index}
                 className={cn(
-                  "border rounded-2xl transition-all duration-300 overflow-hidden",
+                  "border rounded-2xl transition-all duration-500 overflow-hidden transform",
+                  isVisible
+                    ? "translate-y-0 opacity-100 scale-100"
+                    : "translate-y-12 opacity-0 scale-95",
                   isOpen
                     ? "bg-[#14a992]/5 border-[#14a992]/40 shadow-sm"
                     : "bg-white border-slate-100 hover:border-slate-200"
                 )}
+                style={{
+                  transitionDelay: isVisible ? faq.delay : "0s",
+                }}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
