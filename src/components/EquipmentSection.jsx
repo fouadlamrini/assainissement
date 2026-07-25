@@ -1,22 +1,29 @@
-import React from 'react';
-import { equipmentList } from '../data/solutionsData';
+import React from "react";
+import { equipmentList } from "../data/solutionsData";
 
 export default function EquipmentSection() {
   return (
-    <section id="equipements" className="py-16 sm:py-20 bg-slate-50 scroll-mt-20">
+    <section
+      id="equipements"
+      className="py-16 sm:py-20 bg-slate-50 scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-[#14a992] text-sm font-semibold tracking-wider uppercase">
             Nos Équipements
           </span>
+
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
-            Matériel &amp; Équipements d'Assainissement
+            Des équipements adaptés à chaque intervention
           </h2>
+
           <div className="w-16 h-1 bg-[#14a992] mx-auto mt-3 rounded-full" />
+
           <p className="mt-4 text-base sm:text-lg text-slate-600">
-            Un parc d'équipements modernes et performants pour répondre aux exigences techniques des réseaux d'eau et de plomberie lourde.
+            Nous utilisons des équipements professionnels afin de réaliser les
+            interventions de débouchage, de curage, de pompage et d'inspection
+            des réseaux d'assainissement dans les meilleures conditions.
           </p>
         </div>
 
@@ -27,7 +34,7 @@ export default function EquipmentSection() {
               key={item.id}
               className="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col group"
             >
-              {/* Image Container */}
+              {/* Image */}
               <div className="relative h-52 bg-slate-100 overflow-hidden">
                 <img
                   src={item.image}
@@ -36,7 +43,8 @@ export default function EquipmentSection() {
                   loading="lazy"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80';
+                    e.target.src =
+                      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80";
                   }}
                 />
               </div>
@@ -47,6 +55,7 @@ export default function EquipmentSection() {
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#14a992] transition-colors">
                     {item.title}
                   </h3>
+
                   <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     {item.description}
                   </p>
@@ -67,7 +76,6 @@ export default function EquipmentSection() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

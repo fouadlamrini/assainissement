@@ -1,17 +1,16 @@
 /**
  * src/components/sections/Services.jsx
- * 
- * Section Services - Présentation des prestations clés en assainissement.
- * Redirection directe vers WhatsApp avec message personnalisé par service.
+ *
+ * Section Services - Présentation des prestations d'assainissement.
  */
 
-import { 
-  Droplet, 
-  Wrench, 
-  Truck, 
-  Eye, 
-  ShieldAlert, 
-  Building2 
+import {
+  Droplet,
+  Wrench,
+  Truck,
+  Eye,
+  ShieldAlert,
+  Building2,
 } from "lucide-react";
 import { Container, Section, SectionTitle } from "../ui/BaseComponents";
 
@@ -19,45 +18,51 @@ const servicesList = [
   {
     icon: Wrench,
     title: "Débouchage de Canalisation",
-    description: "Intervention rapide pour déboucher vos éviers, WC, lavabos, douches et regards extérieurs. Élimination radicale de tous types de bouchons.",
-    tag: "Urgence 24h/7j",
-    image: "/assets/Debouchage.jpg"
+    description:
+      "Débouchage des éviers, WC, lavabos, douches et canalisations extérieures à l'aide d'un matériel adapté pour rétablir un écoulement normal.",
+    tag: "Dépannage",
+    image: "/assets/Debouchage.jpg",
   },
   {
     icon: Droplet,
     title: "Curage de Réseaux & Canalisations",
-    description: "Nettoyage haute pression (hydrocurage) pour détartrer les parois, éliminer les graisses et prévenir les futurs engorgements ou mauvaises odeurs.",
-    tag: "Prévention & Entretien",
-    image: "/assets/curage.jpg"
+    description:
+      "Nettoyage des canalisations par hydrocurage afin d'éliminer les dépôts, les graisses et les résidus susceptibles de provoquer des obstructions.",
+    tag: "Entretien",
+    image: "/assets/curage.jpg",
   },
   {
     icon: Truck,
     title: "Vidange & Pompage de Fosses",
-    description: "Pompage et vidange complète de fosses septiques, bacs à graisse et stations de relevage avec transport des déchets vers des centres agréés.",
-    tag: "Matériel Professionnel",
-    image: "/assets/vidange.jpg"
+    description:
+      "Vidange et pompage des fosses septiques, bacs à graisse et autres ouvrages d'assainissement avec un matériel professionnel adapté.",
+    tag: "Pompage",
+    image: "/assets/vidange.jpg",
   },
   {
     icon: Eye,
-    title: "Inspection Caméra Vidéo HD",
-    description: "Exploration endoscopique de vos réseaux pour localiser précisément les bouchons, les fissures, les racines ou l'affaissement des canalisations.",
-    tag: "Diagnostic Précis",
-    image: "/assets/camera.jpg"
+    title: "Inspection des Canalisations",
+    description:
+      "Inspection par caméra lorsque cela est nécessaire afin d'identifier l'origine d'un bouchon, d'une fuite ou d'une anomalie sur le réseau.",
+    tag: "Diagnostic",
+    image: "/assets/camera.jpg",
   },
   {
     icon: ShieldAlert,
-    title: "Réparation & Dépannage d'Égouts",
-    description: "Intervention sur les réseaux d'eaux usées et eaux vannes endommagés. Réparation de regards cassés et fuites enterrées.",
-    tag: "Solutions Durables",
-    image: "/assets/depannage.jpg"
+    title: "Réparation de Réseaux d'Assainissement",
+    description:
+      "Travaux de réparation et de remise en état des réseaux d'eaux usées, des regards et des canalisations endommagées.",
+    tag: "Réparation",
+    image: "/assets/depannage.jpg",
   },
   {
     icon: Building2,
-    title: "Assainissement Collectif & Syndics",
-    description: "Contrats d'entretien pour les copropriétés, immeubles et industries. Nettoyage des colonnes générales de vide-ordures et d'eaux usées.",
-    tag: "Offre Pro",
-    image: "/assets/collectif.jpg"
-  }
+    title: "Entretien pour Professionnels & Copropriétés",
+    description:
+      "Prestations d'entretien destinées aux immeubles, copropriétés, commerces, entreprises et collectivités selon leurs besoins.",
+    tag: "Professionnels",
+    image: "/assets/collectif.jpg",
+  },
 ];
 
 export default function Services() {
@@ -68,45 +73,47 @@ export default function Services() {
     <Section id="services" className="bg-slate-50">
       <Container>
         <SectionTitle
-          subtitle="Nos Prestations Professionnelles"
-          title="Solutions Complètes d'Assainissement & Débouchage"
+          subtitle="Nos Services"
+          title="Des prestations adaptées à vos besoins en assainissement"
           centered={true}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {servicesList.map((service, index) => {
             const IconComponent = service.icon;
-            
-            const textMessage = `سلام اريد هذه الخدمة: *${service.title}*\n\nرابط الصورة للمعاينة:\n${baseUrl}${service.image}`;
+
+            const textMessage = `Bonjour, je souhaite obtenir des informations concernant le service : *${service.title}*.\n\nImage de référence :\n${baseUrl}${service.image}`;
             const encodedText = encodeURIComponent(textMessage);
             const whatsappServiceUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
 
             return (
-              <div 
+              <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-[#14a992]/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-[#85ca51]/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="relative h-48 w-full overflow-hidden bg-slate-200">
-                    <img 
-                      src={service.image} 
+                    <img
+                      src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
+
                     <span className="absolute top-4 right-4 text-xs font-bold px-3 py-1.5 rounded-lg bg-white/95 text-slate-800 shadow-sm backdrop-blur-sm border border-slate-200/50">
                       {service.tag}
                     </span>
                   </div>
 
                   <div className="p-6">
-                    <div className="w-12 h-12 rounded-xl bg-[#14a992]/10 text-[#14a992] flex items-center justify-center mb-4 group-hover:bg-[#14a992] group-hover:text-white transition-all duration-300 shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-[#85ca51]/10 text-[#85ca51] flex items-center justify-center mb-4 group-hover:bg-[#85ca51] group-hover:text-white transition-all duration-300 shadow-sm">
                       <IconComponent className="w-6 h-6" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#14a992] transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-[#14a992] mb-3 group-hover:text-[#108c79] transition-colors duration-200">
                       {service.title}
                     </h3>
+
                     <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                       {service.description}
                     </p>
@@ -114,7 +121,7 @@ export default function Services() {
                 </div>
 
                 <div className="p-6 pt-0">
-                  <a 
+                  <a
                     href={whatsappServiceUrl}
                     target="_blank"
                     rel="noopener noreferrer"

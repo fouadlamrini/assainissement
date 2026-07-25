@@ -169,14 +169,25 @@ export const WhatsAppButton = ({ className, size = "md" }) => {
  */
 export const IconBox = ({ icon: Icon, className, variant = "blue" }) => {
   return (
-    <div className={cn(
-      "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm",
-      {
-        "bg-[#14a992]/10 text-[#14a992] group-hover:bg-[#14a992] group-hover:text-white": variant === "blue" || variant === "emerald",
-        "bg-slate-900 text-amber-400": variant === "dark",
-      },
-      className
-    )}>
+    <div
+      className={cn(
+        "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm",
+        {
+          // Bleu / Vert principal
+          "bg-[#14a992]/10 text-[#14a992] group-hover:bg-[#14a992] group-hover:text-white":
+            variant === "blue" || variant === "emerald",
+
+          // Nouveau variant Lime
+          "bg-[#85ca51]/10 text-[#85ca51] group-hover:bg-[#85ca51] group-hover:text-white":
+            variant === "lime",
+
+          // Dark
+          "bg-slate-900 text-amber-400":
+            variant === "dark",
+        },
+        className
+      )}
+    >
       <Icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
     </div>
   );
