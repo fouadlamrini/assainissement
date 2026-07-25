@@ -1,22 +1,58 @@
-import React from "react";
+/**
+ * src/components/sections/StepSection.jsx
+ *
+ * Section Installation de Stations d'Épuration (STEP).
+ * Interactive & Scroll-Triggered Staggered Animations.
+ */
+
+import React, { useEffect, useRef, useState } from "react";
 import { stepProcess } from "../data/solutionsData";
 
 export default function StepSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="step"
-      className="py-16 sm:py-20 bg-white border-t border-slate-100 scroll-mt-20"
+      ref={sectionRef}
+      className="py-16 sm:py-20 bg-white border-t border-slate-100 scroll-mt-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
           {/* Left Column: Visual Banner */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+            <div
+              className={`relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 group transition-all duration-700 ease-out transform ${
+                isVisible
+                  ? "translate-x-0 opacity-100 scale-100"
+                  : "-translate-x-12 opacity-0 scale-95"
+              }`}
+            >
               <img
                 src="/assets/recyclage.jpg"
                 alt="Station d'épuration (STEP)"
-                className="w-full h-[420px] object-cover"
+                className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
 
@@ -41,7 +77,14 @@ export default function StepSection() {
 
           {/* Right Column */}
           <div className="lg:col-span-7">
-            <div className="mb-8">
+            {/* Header Text */}
+            <div
+              className={`mb-8 transition-all duration-700 ease-out transform ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
+            >
               <span className="text-[#14a992] text-sm font-semibold tracking-wider uppercase">
                 Nos Solutions
               </span>
@@ -60,28 +103,40 @@ export default function StepSection() {
 
             {/* Timeline Process */}
             <div className="space-y-6">
-              {stepProcess.map((item) => (
-                <div
-                  key={item.step}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-[#14a992]/30 transition-colors"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#14a992] text-white font-bold text-lg flex items-center justify-center shadow-sm">
-                    {item.step}
-                  </div>
+              {stepProcess.map((item, index) => {
+                const delay = `${index * 0.15 + 0.2}s`;
 
-                  <div>
-                    <h4 className="text-base font-bold text-slate-900">
-                      {item.title}
-                    </h4>
+                return (
+                  <div
+                    key={item.step}
+                    className={`flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-[#14a992]/40 hover:bg-white hover:shadow-md transition-all duration-500 ease-out transform group ${
+                      isVisible
+                        ? "translate-x-0 opacity-100"
+                        : "translate-x-12 opacity-0"
+                    }`}
+                    style={{
+                      transitionDelay: isVisible ? delay : "0s",
+                    }}
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#14a992] text-white font-bold text-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                      {item.step}
+                    </div>
 
-                    <p className="text-sm text-slate-600 mt-1 leading-relaxed">
-                      {item.description}
-                    </p>
+                    <div>
+                      <h4 className="text-base font-bold text-slate-900 group-hover:text-[#14a992] transition-colors duration-200">
+                        {item.title}
+                      </h4>
+
+                      <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
+
         </div>
       </div>
     </section>
