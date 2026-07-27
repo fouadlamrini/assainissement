@@ -4,9 +4,9 @@ export const legalSections = [
     content: `
 Le présent site est édité par :
 
-Nom : [Nom de votre entreprise]
+Nom : LETRACI
 
-Téléphone : +212 XXX XX XX XX
+Téléphone : +212 668 029 443
 
 E-mail : contact@votre-site.com
     `,
@@ -26,17 +26,10 @@ Site web : https://vercel.com
     `,
   },
 
-  {
-    title: "3. Propriété intellectuelle",
-    content: `
-L'ensemble des contenus présents sur ce site (textes, images, illustrations, logo, icônes et autres éléments graphiques) est protégé par les lois relatives à la propriété intellectuelle.
-
-Toute reproduction, représentation ou utilisation, totale ou partielle, sans autorisation préalable est interdite.
-    `,
-  },
+ 
 
   {
-    title: "4. Responsabilité",
+    title: "3. Responsabilité",
     content: `
 Les informations publiées sur ce site sont fournies à titre informatif.
 
@@ -45,7 +38,7 @@ Nous nous efforçons d'assurer leur exactitude, mais nous ne pouvons garantir l'
   },
 
   {
-    title: "5. Liens externes",
+    title: "4. Liens externes",
     content: `
 Le site peut contenir des liens vers des sites tiers.
 
@@ -54,7 +47,7 @@ Nous ne sommes pas responsables du contenu ni des politiques appliquées par ces
   },
 
   {
-    title: "6. Contact",
+    title: "5. Contact",
     content: `
 Pour toute question concernant ces mentions légales, vous pouvez nous contacter par téléphone ou via WhatsApp aux coordonnées indiquées sur le site.
     `,

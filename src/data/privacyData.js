@@ -26,31 +26,24 @@ Les informations échangées sur WhatsApp sont traitées par WhatsApp conformém
     `,
   },
 
-  {
-    title: "4. Cookies et outils de suivi",
-    content: `
-Notre site n'utilise pas Google Analytics, Meta Pixel ni d'autres outils de suivi.
 
-Nous n'utilisons pas de cookies à des fins publicitaires ou analytiques.
-    `,
-  },
 
   {
-    title: "5. Sécurité",
+    title: "4. Sécurité",
     content: `
 Nous mettons en œuvre des mesures raisonnables afin d'assurer la sécurité et le bon fonctionnement du site.
     `,
   },
 
   {
-    title: "6. Modifications",
+    title: "5. Modifications",
     content: `
 Cette Politique de confidentialité peut être modifiée à tout moment afin de refléter les évolutions du site ou les exigences légales.
     `,
   },
 
   {
-    title: "7. Contact",
+    title: "6. Contact",
     content: `
 Pour toute question concernant cette Politique de confidentialité, vous pouvez nous contacter via WhatsApp ou par téléphone aux coordonnées indiquées sur le site.
     `,
