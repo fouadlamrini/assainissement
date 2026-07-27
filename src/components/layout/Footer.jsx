@@ -5,6 +5,7 @@
  */
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
 import { Container } from "../ui/BaseComponents";
 
@@ -17,51 +18,58 @@ export default function Footer() {
         <div className="py-10 flex flex-col lg:flex-row justify-between gap-10">
           {/* Logo + Description */}
           <div className="max-w-sm">
-            <img
-              src="/assets/logo3.png"
-              alt="Logo"
-              className="h-10 w-auto object-contain mb-4"
-            />
+            <Link to="/">
+              <img
+                src="/assets/logo3.png"
+                alt="Logo"
+                className="h-10 w-auto object-contain mb-4"
+              />
+            </Link>
 
             <p className="text-sm leading-relaxed">
-              Solutions professionnelles pour le débouchage,
-              l'assainissement, le pompage et la vidange.
-              Intervention rapide 24h/24 et 7j/7.
+              Solutions professionnelles pour le débouchage, l'assainissement,
+              le pompage et la vidange. Intervention rapide 24h/24 et 7j/7.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-white font-semibold mb-4">
-              Navigation
-            </h3>
+            <h3 className="text-white font-semibold mb-4">Navigation</h3>
 
             <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="/"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/" className="hover:text-white transition-colors">
                   Accueil
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/solutions-techniques"
+                <Link
+                  to="/solutions-techniques"
                   className="hover:text-white transition-colors"
                 >
                   Solutions Techniques
-                </a>
+                </Link>
               </li>
+
+              <li>
+                <Link
+                  to="/privacy-policy"
+                  className="hover:text-white transition-colors"
+                >
+                  Politique de confidentialité
+                </Link>
+              </li>
+
+              
+
+             
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">
-              Contact
-            </h3>
+            <h3 className="text-white font-semibold mb-4">Contact</h3>
 
             <div className="space-y-3 text-sm">
               <a
@@ -93,7 +101,14 @@ export default function Footer() {
         <div className="border-t border-slate-800 py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-center md:text-left">
           <p>© {currentYear} Tous droits réservés.</p>
 
-          <p>Intervention rapide 24h/24 • 7j/7</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to="/privacy-policy"
+              className="hover:text-white transition-colors"
+            >
+              Politique de confidentialité
+            </Link>
+          </div>
         </div>
       </Container>
     </footer>

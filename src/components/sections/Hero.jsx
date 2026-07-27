@@ -49,7 +49,7 @@ export default function Hero() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     if (heroRef.current) {
@@ -82,10 +82,8 @@ export default function Hero() {
 
       <Container className="relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
           {/* SECTION TEXTE & CTA */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            
             {/* Badge Animé (Fade In Down) */}
             <div
               className={`inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm transition-all duration-700 ease-out transform ${
@@ -107,7 +105,7 @@ export default function Hero() {
               }`}
             >
               Débouchage &amp; Curage <br />
-              <span className="bg-gradient-to-r from-[#14a992] via-[#35b183] via-[#5fc067] to-[#85ca51] bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
+              <span className="relative inline-block bg-gradient-to-r from-[#14a992] via-[#35b183] via-[#5fc067] to-[#85ca51] bg-clip-text text-transparent">
                 de Canalisation
               </span>
             </h1>
@@ -120,18 +118,16 @@ export default function Hero() {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              Intervention rapide pour vos besoins en débouchage,
-              assainissement et vidange de fosses septiques. Notre équipe
-              intervient avec un matériel professionnel afin de vous proposer
-              une solution adaptée à votre situation.
+              Intervention rapide pour vos besoins en débouchage, assainissement
+              et vidange de fosses septiques. Notre équipe intervient avec un
+              matériel professionnel afin de vous proposer une solution adaptée
+              à votre situation.
             </p>
 
             {/* Boutons CTA (Pop / Scale In) */}
             <div
               className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10 transition-all duration-700 delay-300 ease-out transform ${
-                isVisible
-                  ? "scale-100 opacity-100"
-                  : "scale-90 opacity-0"
+                isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
               }`}
             >
               {/* Phone Button Container */}
@@ -162,7 +158,8 @@ export default function Hero() {
               }`}
             >
               <p className="text-xs sm:text-sm font-medium text-slate-400">
-                Au service des particuliers, des entreprises et des collectivités.
+                Au service des particuliers, des entreprises et des
+                collectivités.
               </p>
             </div>
           </div>
@@ -201,7 +198,6 @@ export default function Hero() {
               );
             })}
           </div>
-
         </div>
       </Container>
     </section>

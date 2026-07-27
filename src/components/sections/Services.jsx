@@ -23,7 +23,7 @@ const servicesList = [
     title: "Débouchage de Canalisation",
     description:
       "Débouchage des éviers, WC, lavabos, douches et canalisations extérieures à l'aide d'un matériel adapté pour rétablir un écoulement normal.",
-    tag: "Dépannage",
+    tag: "Débouchage",
     image: "/assets/Debouchage.jpg",
     delay: "0.1s",
   },
@@ -32,7 +32,7 @@ const servicesList = [
     title: "Curage de Réseaux & Canalisations",
     description:
       "Nettoyage des canalisations par hydrocurage afin d'éliminer les dépôts, les graisses et les résidus susceptibles de provoquer des obstructions.",
-    tag: "Entretien",
+    tag: "Curage",
     image: "/assets/curage.jpg",
     delay: "0.2s",
   },
@@ -41,7 +41,7 @@ const servicesList = [
     title: "Vidange & Pompage de Fosses",
     description:
       "Vidange et pompage des fosses septiques, bacs à graisse et autres ouvrages d'assainissement avec un matériel professionnel adapté.",
-    tag: "Pompage",
+    tag: "Vidange",
     image: "/assets/vidange.jpg",
     delay: "0.3s",
   },
@@ -50,7 +50,7 @@ const servicesList = [
     title: "Inspection des Canalisations",
     description:
       "Inspection par caméra lorsque cela est nécessaire afin d'identifier l'origine d'un bouchon, d'une fuite ou d'une anomalie sur le réseau.",
-    tag: "Diagnostic",
+    tag: "caméra",
     image: "/assets/camera.jpg",
     delay: "0.4s",
   },
