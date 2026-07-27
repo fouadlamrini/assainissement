@@ -6,7 +6,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { Container } from "../ui/BaseComponents";
 
 export default function Footer() {
@@ -100,6 +100,14 @@ export default function Footer() {
               >
                 <Phone size={16} />
                 +212 668 029 443
+              </a>
+
+              <a
+                href="mailto:contact@letraci.com"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Mail size={16} />
+                contact@letraci.com
               </a>
 
               <a

@@ -8,7 +8,7 @@ Nom : LETRACI
 
 Téléphone : +212 668 029 443
 
-E-mail : contact@votre-site.com
+E-mail : contact@letraci.com
     `,
   },
 
