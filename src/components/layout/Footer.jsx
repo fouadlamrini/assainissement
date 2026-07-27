@@ -21,7 +21,7 @@ export default function Footer() {
             <Link to="/">
               <img
                 src="/assets/logo3.png"
-                alt="Logo"
+                alt="LETRACI"
                 className="h-10 w-auto object-contain mb-4"
               />
             </Link>
@@ -29,14 +29,14 @@ export default function Footer() {
             <p className="text-sm leading-relaxed">
               Solutions professionnelles pour le débouchage,
               l'assainissement, le pompage et la vidange.
-              Intervention rapide 24h/24 et 7j/7.
+              Des interventions adaptées à vos besoins.
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Liens utiles */}
           <div>
             <h3 className="text-white font-semibold mb-4">
-              Navigation
+              Liens utiles
             </h3>
 
             <ul className="space-y-3 text-sm">
@@ -111,7 +111,7 @@ export default function Footer() {
                 <img
                   src="/assets/whatsapp.jpg"
                   alt="WhatsApp"
-                  className="w-5 h-5 object-cover rounded-full"
+                  className="w-5 h-5 rounded-full object-cover"
                 />
                 WhatsApp
               </a>
@@ -122,7 +122,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-slate-800 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <p className="text-center md:text-left">
-            © {currentYear} Tous droits réservés au LETRACI.
+            © {currentYear} LETRACI. Tous droits réservés.
           </p>
 
           <div className="flex flex-wrap justify-center gap-5">
@@ -144,7 +144,7 @@ export default function Footer() {
               to="/conditions-generales-de-vente"
               className="hover:text-white transition-colors"
             >
-              CGV
+              Conditions Générales de Vente
             </Link>
           </div>
         </div>
