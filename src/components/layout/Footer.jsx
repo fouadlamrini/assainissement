@@ -122,7 +122,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-slate-800 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <p className="text-center md:text-left">
-            © {currentYear} Tous droits réservés.
+            © {currentYear} Tous droits réservés au LETRACI.
           </p>
 
           <div className="flex flex-wrap justify-center gap-5">
