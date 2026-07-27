@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400 border-t border-slate-800">
       <Container>
-        <div className="py-10 flex flex-col lg:flex-row justify-between gap-10">
+        <div className="py-10 grid gap-10 lg:grid-cols-3">
           {/* Logo + Description */}
           <div className="max-w-sm">
             <Link to="/">
@@ -27,18 +27,24 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed">
-              Solutions professionnelles pour le débouchage, l'assainissement,
-              le pompage et la vidange. Intervention rapide 24h/24 et 7j/7.
+              Solutions professionnelles pour le débouchage,
+              l'assainissement, le pompage et la vidange.
+              Intervention rapide 24h/24 et 7j/7.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Navigation</h3>
+            <h3 className="text-white font-semibold mb-4">
+              Navigation
+            </h3>
 
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/" className="hover:text-white transition-colors">
+                <Link
+                  to="/"
+                  className="hover:text-white transition-colors"
+                >
                   Accueil
                 </Link>
               </li>
@@ -61,15 +67,31 @@ export default function Footer() {
                 </Link>
               </li>
 
-              
+              <li>
+                <Link
+                  to="/mentions-legales"
+                  className="hover:text-white transition-colors"
+                >
+                  Mentions légales
+                </Link>
+              </li>
 
-             
+              <li>
+                <Link
+                  to="/conditions-generales-de-vente"
+                  className="hover:text-white transition-colors"
+                >
+                  Conditions Générales de Vente
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
+            <h3 className="text-white font-semibold mb-4">
+              Contact
+            </h3>
 
             <div className="space-y-3 text-sm">
               <a
@@ -98,15 +120,31 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-slate-800 py-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-center md:text-left">
-          <p>© {currentYear} Tous droits réservés.</p>
+        <div className="border-t border-slate-800 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <p className="text-center md:text-left">
+            © {currentYear} Tous droits réservés.
+          </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-5">
             <Link
               to="/privacy-policy"
               className="hover:text-white transition-colors"
             >
               Politique de confidentialité
+            </Link>
+
+            <Link
+              to="/mentions-legales"
+              className="hover:text-white transition-colors"
+            >
+              Mentions légales
+            </Link>
+
+            <Link
+              to="/conditions-generales-de-vente"
+              className="hover:text-white transition-colors"
+            >
+              CGV
             </Link>
           </div>
         </div>
