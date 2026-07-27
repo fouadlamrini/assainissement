@@ -88,7 +88,10 @@ export default function Process() {
           </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-white tracking-tight leading-tight max-w-3xl mx-auto">
-            Les étapes de votre intervention
+            Les étapes de votre {" "}
+             <span className="relative inline-block bg-gradient-to-r from-[#14a992] via-[#35b183] via-[#5fc067] to-[#85ca51] bg-clip-text text-transparent">
+               intervention
+              </span>
           </h2>
 
           <div className="h-1 w-16 bg-gradient-to-r from-[#14a992] to-[#85ca51] mt-5 mx-auto rounded-full" />
