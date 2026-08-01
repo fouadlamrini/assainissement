@@ -130,7 +130,7 @@ export default function ContactCTA() {
                 }`}
               >
                 <span className="text-xs font-bold text-center lg:text-left text-slate-400 tracking-wider uppercase block">
-                  💬 WhatsApp
+                  💬 WhatsApp 
                 </span>
 
                 <WhatsAppButton

@@ -121,17 +121,21 @@ export const Badge = ({ children, className, variant = "info" }) => {
 /**
  * Bouton d'appel direct standardisé pour la conversion
  */
-export const PhoneButton = ({ className, size = "md", variant = "primary" }) => {
+export const PhoneButton = ({
+  className,
+  size = "md",
+  variant = "primary",
+}) => {
   return (
     <Button
       as="a"
       href={`tel:${companyConfig.phone}`}
       variant={variant}
       size={size}
-      className={cn("gap-2.5", className)}
+      className={cn("gap-2.5 justify-center min-w-[220px]", className)}
       aria-label={`Appeler notre service d'urgence au ${companyConfig.phoneFormatted}`}
     >
-      <Phone className="w-5 h-5 animate-pulse" />
+      <Phone className="w-5 h-5 animate-pulse flex-shrink-0" />
       <span>{companyConfig.phoneFormatted}</span>
     </Button>
   );
@@ -140,30 +144,36 @@ export const PhoneButton = ({ className, size = "md", variant = "primary" }) => 
 /**
  * Bouton WhatsApp direct avec message pré-rempli
  */
-export const WhatsAppButton = ({ className, size = "md" }) => {
+export const WhatsAppButton = ({
+  className,
+  size = "md",
+  variant = "emerald",
+}) => {
   const encodedMessage = encodeURIComponent(companyConfig.whatsappMessage);
 
   return (
     <Button
       as="a"
-      href={`https://wa.me/${companyConfig.whatsapp.replace("+", "")}?text=${encodedMessage}`}
+      href={`https://wa.me/${companyConfig.whatsapp.replace(
+        "+",
+        ""
+      )}?text=${encodedMessage}`}
       target="_blank"
       rel="noopener noreferrer"
-      variant="emerald"
+      variant={variant}
       size={size}
-      className={cn("gap-2.5", className)}
+      className={cn("gap-2.5 justify-center min-w-[220px]", className)}
       aria-label="Contacter un technicien d'assainissement sur WhatsApp"
     >
       <img
         src="/assets/whatsapp.jpg"
         alt="WhatsApp"
-        className="w-8 h-8 rounded-full object-cover"
+        className="w-5 h-5 rounded-full object-cover flex-shrink-0"
       />
       <span>WhatsApp Rapide</span>
     </Button>
   );
 };
-
 /**
  * Boîtier d'icône décoratif élégant
  */
