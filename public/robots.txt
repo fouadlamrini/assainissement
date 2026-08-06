@@ -10,4 +10,4 @@ Disallow: /*.config.js$
 Host: https://www.letraci.ma
 
 # XML Sitemap declaration
-Sitemap: https://www.letraci.ma/sitemap.xml
+Sitemap: https://letraci.com/sitemap.xml
