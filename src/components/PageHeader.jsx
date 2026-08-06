@@ -6,8 +6,8 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { Container } from "../ui/BaseComponents";
-import { cn } from "../../utils/cn";
+import { Container } from "./ui/BaseComponents";
+import { cn } from "../utils/cn";
 
 // Image de fond par défaut
 const DEFAULT_BG_IMAGE = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80";

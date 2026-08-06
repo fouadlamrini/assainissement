@@ -6,8 +6,8 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { Section, Container } from "../ui/BaseComponents";
-import { stepProcess } from "../../data/solutionsData";
+import { Section, Container } from "./ui/BaseComponents";
+import { stepProcess } from "../data/solutionsData";
 
 const FALLBACK_STEP_IMAGE =
   "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80";

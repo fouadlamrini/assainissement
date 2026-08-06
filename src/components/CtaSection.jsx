@@ -7,8 +7,8 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight, Phone, FileText } from "lucide-react";
-import { Container, Button, PhoneButton } from "../ui/BaseComponents";
-import { companyConfig } from "../../data/siteData";
+import { Container, Button, PhoneButton } from "./ui/BaseComponents";
+import { companyConfig } from "../data/siteData";
 
 export default function CtaSection() {
   const [isVisible, setIsVisible] = useState(false);

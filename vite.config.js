@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
+
       isAnalyze &&
         visualizer({
           filename: './dist/stats.html',
@@ -27,38 +28,36 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@': path.resolve(__dirname, 'src'),
       },
     },
 
     build: {
       target: 'es2022',
       outDir: 'dist',
-      assetsInlineLimit: 4096, // 4KB - inline small SVG/images as base64 to reduce HTTP requests
-      cssCodeSplit: true,
       sourcemap: mode === 'development',
       minify: 'esbuild',
+
       rollupOptions: {
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
               if (
-                id.includes('react/') ||
-                id.includes('react-dom/') ||
-                id.includes('react-router-dom/') ||
-                id.includes('react-helmet-async/')
+                id.includes('react') ||
+                id.includes('react-dom') ||
+                id.includes('react-router-dom')
               ) {
                 return 'vendor-react'
               }
+
               if (id.includes('framer-motion')) {
                 return 'vendor-animation'
               }
+
               if (id.includes('lucide-react')) {
-                return 'vendor-ui-icons'
+                return 'vendor-icons'
               }
-              if (id.includes('clsx') || id.includes('tailwind-merge')) {
-                return 'vendor-utils'
-              }
+
               return 'vendor'
             }
           },

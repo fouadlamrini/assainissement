@@ -8,11 +8,11 @@
 
 import React, { useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import PageHeader from "../components/sections/PageHeader";
-import EquipmentSection from "../components/sections/EquipmentSection";
-import StepSection from "../components/sections/StepSection";
-import TreatmentSection from "../components/sections/TreatmentSection";
-import CtaSection from "../components/sections/CtaSection";
+import PageHeader from "../components/PageHeader";
+import EquipmentSection from "../components/EquipmentSection";
+import StepSection from "../components/StepSection";
+import TreatmentSection from "../components/TreatmentSection";
+import CtaSection from "../components/CtaSection";
 import Footer from "../components/layout/Footer";
 import FloatingTriggers from "../components/common/FloatingTriggers";
 

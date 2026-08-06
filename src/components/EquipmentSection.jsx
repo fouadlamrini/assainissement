@@ -6,8 +6,8 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { Section, Container, SectionTitle } from "../ui/BaseComponents";
-import { equipmentList } from "../../data/solutionsData";
+import { Section, Container, SectionTitle } from "./ui/BaseComponents";
+import { equipmentList } from "../data/solutionsData";
 
 // Image de secours standard en cas d'erreur d'affichage
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80";

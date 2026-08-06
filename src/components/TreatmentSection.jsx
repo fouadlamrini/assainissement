@@ -6,8 +6,8 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { Section, Container } from "../ui/BaseComponents";
-import { treatmentFeatures } from "../../data/solutionsData";
+import { Section, Container } from "./ui/BaseComponents";
+import { treatmentFeatures } from "../data/solutionsData";
 
 const FALLBACK_TREATMENT_IMAGE =
   "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80";
