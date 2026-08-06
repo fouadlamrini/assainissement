@@ -12,9 +12,10 @@ export default defineConfig(({ mode }) => {
   const isAnalyze = process.env.stats === 'true'
 
   return {
+    // 1. Derna tailwindcss() qbl react()
     plugins: [
-      react(),
       tailwindcss(),
+      react(),
 
       isAnalyze &&
         visualizer({
@@ -41,6 +42,9 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks(id) {
+            // 2. Exclude CSS files mn manual chunking باش ma-ykhsserch l-bundle d styles
+            if (id.includes('.css')) return
+
             if (id.includes('node_modules')) {
               if (
                 id.includes('react') ||
