@@ -6,7 +6,11 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { equipmentList } from "../data/solutionsData";
+import { Section, Container, SectionTitle } from "../ui/BaseComponents";
+import { equipmentList } from "../../data/solutionsData";
+
+// Image de secours standard en cas d'erreur d'affichage
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80";
 
 export default function EquipmentSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,32 +34,29 @@ export default function EquipmentSection() {
     return () => observer.disconnect();
   }, []);
 
+  const hasEquipment = Array.isArray(equipmentList) && equipmentList.length > 0;
+
   return (
-    <section
+    <Section
       id="equipements"
       ref={sectionRef}
-      className="py-16 sm:py-20 bg-slate-50 scroll-mt-20 overflow-hidden"
+      className="bg-slate-50 border-y border-slate-100"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Section Title Animé */}
         <div
-          className={`text-center max-w-3xl mx-auto mb-12 sm:mb-16 transition-all duration-700 ease-out transform ${
+          className={`transition-all duration-700 ease-out transform ${
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-10 opacity-0"
           }`}
         >
-          <span className="text-[#14a992] text-sm font-semibold tracking-wider uppercase">
-            Nos Équipements
-          </span>
-
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
-            Des équipements adaptés à chaque intervention
-          </h2>
-
-          <div className="w-16 h-1 bg-[#14a992] mx-auto mt-3 rounded-full" />
-
-          <p className="mt-4 text-base sm:text-lg text-slate-600">
+          <SectionTitle
+            subtitle="Nos Équipements"
+            title="Des équipements adaptés à chaque intervention"
+            centered={true}
+          />
+          <p className="-mt-8 mb-12 text-center text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Nous utilisons des équipements professionnels afin de réaliser les
             interventions de débouchage, de curage, de pompage et d'inspection
             des réseaux d'assainissement dans les meilleures conditions.
@@ -63,67 +64,70 @@ export default function EquipmentSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {equipmentList.map((item, index) => {
-            const delay = `${(index % 3) * 0.15 + 0.1}s`;
+        {hasEquipment && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {equipmentList.map((item, index) => {
+              const delay = `${(index % 3) * 0.15 + 0.1}s`;
 
-            return (
-              <div
-                key={item.id}
-                className={`bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-xl hover:border-[#14a992]/40 hover:-translate-y-2 transition-all duration-700 ease-out flex flex-col group transform ${
-                  isVisible
-                    ? "translate-y-0 opacity-100 scale-100"
-                    : "translate-y-16 opacity-0 scale-95"
-                }`}
-                style={{
-                  transitionDelay: isVisible ? delay : "0s",
-                }}
-              >
-                {/* Image */}
-                <div className="relative h-52 bg-slate-100 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src =
-                        "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80";
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#14a992] transition-colors duration-200">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                      {item.description}
-                    </p>
+              return (
+                <div
+                  key={item.id || index}
+                  className={`bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-xl hover:border-[#14a992]/40 hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col group transform ${
+                    isVisible
+                      ? "translate-y-0 opacity-100 scale-100"
+                      : "translate-y-16 opacity-0 scale-95"
+                  }`}
+                  style={{
+                    transitionDelay: isVisible ? delay : "0s",
+                  }}
+                >
+                  {/* Image */}
+                  <div className="relative h-52 bg-slate-100 overflow-hidden">
+                    <img
+                      src={item.image || FALLBACK_IMAGE}
+                      alt={item.title || "Équipement d'assainissement"}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = FALLBACK_IMAGE;
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-slate-100">
-                    {item.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-block px-2.5 py-1 text-xs font-medium bg-[#14a992]/10 text-[#14a992] rounded-md transition-colors duration-200 group-hover:bg-[#14a992] group-hover:text-white"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Content */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#14a992] transition-colors duration-200">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Tags */}
+                    {Array.isArray(item.tags) && item.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 pt-3 border-t border-slate-100 mt-auto">
+                        {item.tags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-block px-2.5 py-1 text-xs font-semibold bg-[#14a992]/10 text-[#14a992] rounded-md transition-colors duration-200 group-hover:bg-[#14a992] group-hover:text-white"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+              );
+            })}
+          </div>
+        )}
+      </Container>
+    </Section>
   );
 }

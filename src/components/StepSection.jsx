@@ -6,10 +6,15 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { stepProcess } from "../data/solutionsData";
+import { Section, Container } from "../ui/BaseComponents";
+import { stepProcess } from "../../data/solutionsData";
+
+const FALLBACK_STEP_IMAGE =
+  "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=800&q=80";
 
 export default function StepSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [imgSrc, setImgSrc] = useState("/assets/recyclage.jpg");
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -30,13 +35,15 @@ export default function StepSection() {
     return () => observer.disconnect();
   }, []);
 
+  const hasProcessSteps = Array.isArray(stepProcess) && stepProcess.length > 0;
+
   return (
-    <section
+    <Section
       id="step"
       ref={sectionRef}
-      className="py-16 sm:py-20 bg-white border-t border-slate-100 scroll-mt-20 overflow-hidden"
+      className="bg-white border-t border-slate-100"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -50,13 +57,14 @@ export default function StepSection() {
               }`}
             >
               <img
-                src="/assets/recyclage.jpg"
+                src={imgSrc}
                 alt="Station d'épuration (STEP)"
                 className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
+                onError={() => setImgSrc(FALLBACK_STEP_IMAGE)}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none" />
 
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <span className="inline-block px-3 py-1 bg-[#14a992] text-xs font-semibold uppercase tracking-wider rounded-md mb-2">
@@ -89,7 +97,7 @@ export default function StepSection() {
                 Nos Solutions
               </span>
 
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 tracking-tight">
                 Installation de Stations d'Épuration (STEP)
               </h2>
 
@@ -102,43 +110,45 @@ export default function StepSection() {
             </div>
 
             {/* Timeline Process */}
-            <div className="space-y-6">
-              {stepProcess.map((item, index) => {
-                const delay = `${index * 0.15 + 0.2}s`;
+            {hasProcessSteps && (
+              <div className="space-y-4 sm:space-y-6">
+                {stepProcess.map((item, index) => {
+                  const delay = `${index * 0.15 + 0.2}s`;
 
-                return (
-                  <div
-                    key={item.step}
-                    className={`flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-[#14a992]/40 hover:bg-white hover:shadow-md transition-all duration-500 ease-out transform group ${
-                      isVisible
-                        ? "translate-x-0 opacity-100"
-                        : "translate-x-12 opacity-0"
-                    }`}
-                    style={{
-                      transitionDelay: isVisible ? delay : "0s",
-                    }}
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#14a992] text-white font-bold text-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
-                      {item.step}
+                  return (
+                    <div
+                      key={item.step || index}
+                      className={`flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-[#14a992]/40 hover:bg-white hover:shadow-md transition-all duration-500 ease-out transform group ${
+                        isVisible
+                          ? "translate-x-0 opacity-100"
+                          : "translate-x-12 opacity-0"
+                      }`}
+                      style={{
+                        transitionDelay: isVisible ? delay : "0s",
+                      }}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#14a992] text-white font-bold text-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                        {item.step}
+                      </div>
+
+                      <div className="flex-1">
+                        <h4 className="text-base font-bold text-slate-900 group-hover:text-[#14a992] transition-colors duration-200">
+                          {item.title}
+                        </h4>
+
+                        <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-
-                    <div>
-                      <h4 className="text-base font-bold text-slate-900 group-hover:text-[#14a992] transition-colors duration-200">
-                        {item.title}
-                      </h4>
-
-                      <p className="text-sm text-slate-600 mt-1 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

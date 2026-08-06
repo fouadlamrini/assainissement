@@ -5,8 +5,8 @@
  * Centralise les boutons d'action (CTA), conteneurs et titres de sections.
  */
 
-import React from "react";
-import { Phone, MessageSquare, ArrowRight, Check } from "lucide-react";
+import React, { useState } from "react";
+import { Phone, MessageCircle } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { companyConfig } from "../../data/siteData";
 
@@ -31,7 +31,7 @@ export const Section = ({ children, className, id, ...props }) => {
   return (
     <section 
       id={id} 
-      className={cn("py-20 md:py-28 overflow-hidden bg-white text-slate-900 scroll-mt-20", className)} 
+      className={cn("py-16 md:py-24 overflow-hidden bg-white text-slate-900 scroll-mt-20", className)} 
       {...props}
     >
       {children}
@@ -86,7 +86,7 @@ export const Button = React.forwardRef(({
           // Tailles
           "px-4 py-2.5 text-sm": size === "sm",
           "px-6 py-3.5 text-base": size === "md",
-          "px-8 py-4 text-lg text-md": size === "lg",
+          "px-8 py-4 text-lg": size === "lg",
         },
         className
       )}
@@ -132,11 +132,11 @@ export const PhoneButton = ({
       href={`tel:${companyConfig.phone}`}
       variant={variant}
       size={size}
-      className={cn("gap-2.5 justify-center min-w-[220px]", className)}
-      aria-label={`Appeler notre service d'urgence au ${companyConfig.phoneFormatted}`}
+      className={cn("gap-2.5 justify-center w-full sm:w-auto min-w-[200px]", className)}
+      aria-label={`Appeler notre service d'urgence au ${companyConfig.phoneFormatted || companyConfig.phone}`}
     >
       <Phone className="w-5 h-5 animate-pulse flex-shrink-0" />
-      <span>{companyConfig.phoneFormatted}</span>
+      <span>{companyConfig.phoneFormatted || companyConfig.phone}</span>
     </Button>
   );
 };
@@ -149,39 +149,46 @@ export const WhatsAppButton = ({
   size = "md",
   variant = "emerald",
 }) => {
-  const encodedMessage = encodeURIComponent(companyConfig.whatsappMessage);
+  const [imgError, setImgError] = useState(false);
+  const cleanPhone = companyConfig.whatsapp ? companyConfig.whatsapp.replace(/[^\d]/g, "") : "";
+  const encodedMessage = encodeURIComponent(companyConfig.whatsappMessage || "");
 
   return (
     <Button
       as="a"
-      href={`https://wa.me/${companyConfig.whatsapp.replace(
-        "+",
-        ""
-      )}?text=${encodedMessage}`}
+      href={`https://wa.me/${cleanPhone}?text=${encodedMessage}`}
       target="_blank"
       rel="noopener noreferrer"
       variant={variant}
       size={size}
-      className={cn("gap-2.5 justify-center min-w-[220px]", className)}
+      className={cn("gap-2.5 justify-center w-full sm:w-auto min-w-[200px]", className)}
       aria-label="Contacter un technicien d'assainissement sur WhatsApp"
     >
-      <img
-        src="/assets/whatsapp.jpg"
-        alt="WhatsApp"
-        className="w-5 h-5 rounded-full object-cover flex-shrink-0"
-      />
+      {!imgError ? (
+        <img
+          src="/assets/whatsapp.jpg"
+          alt="WhatsApp"
+          onError={() => setImgError(true)}
+          className="w-5 h-5 rounded-full object-cover flex-shrink-0"
+        />
+      ) : (
+        <MessageCircle className="w-5 h-5 flex-shrink-0 fill-current" />
+      )}
       <span>WhatsApp Rapide</span>
     </Button>
   );
 };
+
 /**
  * Boîtier d'icône décoratif élégant
  */
 export const IconBox = ({ icon: Icon, className, variant = "blue" }) => {
+  if (!Icon) return null;
+
   return (
     <div
       className={cn(
-        "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm",
+        "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm flex-shrink-0",
         {
           // Bleu / Vert principal
           "bg-[#14a992]/10 text-[#14a992] group-hover:bg-[#14a992] group-hover:text-white":

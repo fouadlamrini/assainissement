@@ -1,27 +1,29 @@
 {
   "name": "assainissement",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Enterprise sanitation, septic, and pipe maintenance web platform optimized for search engine visibility and peak performance.",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "analyze": "stats=true vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.25.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.18.1",
-    "tailwind-merge": "^3.6.0",
-    "tailwindcss": "^4.3.3"
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
@@ -29,6 +31,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.7.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "tailwindcss": "^4.3.3",
     "vite": "^8.1.1"
   }
 }

@@ -25,7 +25,6 @@ const servicesList = [
       "Débouchage des éviers, WC, lavabos, douches et canalisations extérieures à l'aide d'un matériel adapté pour rétablir un écoulement normal.",
     tag: "Débouchage",
     image: "/assets/Debouchage.jpg",
-    delay: "0.1s",
   },
   {
     icon: Droplet,
@@ -34,7 +33,6 @@ const servicesList = [
       "Nettoyage des canalisations par hydrocurage afin d'éliminer les dépôts, les graisses et les résidus susceptibles de provoquer des obstructions.",
     tag: "Curage",
     image: "/assets/curage.jpg",
-    delay: "0.2s",
   },
   {
     icon: Truck,
@@ -43,16 +41,14 @@ const servicesList = [
       "Vidange et pompage des fosses septiques, bacs à graisse et autres ouvrages d'assainissement avec un matériel professionnel adapté.",
     tag: "Vidange",
     image: "/assets/vidange.jpg",
-    delay: "0.3s",
   },
   {
     icon: Eye,
     title: "Inspection des Canalisations",
     description:
       "Inspection par caméra lorsque cela est nécessaire afin d'identifier l'origine d'un bouchon, d'une fuite ou d'une anomalie sur le réseau.",
-    tag: "caméra",
+    tag: "Caméra",
     image: "/assets/camera.jpg",
-    delay: "0.4s",
   },
   {
     icon: ShieldAlert,
@@ -61,7 +57,6 @@ const servicesList = [
       "Travaux de réparation et de remise en état des réseaux d'eaux usées, des regards et des canalisations endommagées.",
     tag: "Réparation",
     image: "/assets/depannage.jpg",
-    delay: "0.5s",
   },
   {
     icon: Building2,
@@ -70,7 +65,6 @@ const servicesList = [
       "Prestations d'entretien destinées aux immeubles, copropriétés, commerces, entreprises et collectivités selon leurs besoins.",
     tag: "Professionnels",
     image: "/assets/collectif.jpg",
-    delay: "0.6s",
   },
 ];
 
@@ -103,11 +97,11 @@ export default function Services() {
     <Section
       id="services"
       ref={sectionRef}
-      className="bg-slate-50 relative overflow-hidden py-20"
+      className="bg-slate-50 relative overflow-hidden py-20 md:py-28"
     >
-      {/* Subtle Background Deco Orbs */}
-      <div className="absolute top-1/4 left-[-10%] w-96 h-96 bg-[#14a992]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-[-10%] w-96 h-96 bg-[#85ca51]/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Background Decorative Orbs */}
+      <div className="absolute top-1/4 -left-[10%] w-96 h-96 bg-[#14a992]/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-10 -right-[10%] w-96 h-96 bg-[#85ca51]/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
       <Container className="relative z-10">
         {/* Section Header Animé */}
@@ -125,10 +119,11 @@ export default function Services() {
           />
         </div>
 
-        {/* Grid dyal Cards */}
+        {/* Grid des Prestations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {servicesList.map((service, index) => {
             const IconComponent = service.icon;
+            const delayMs = 100 + index * 100;
 
             const textMessage = `Bonjour, je souhaite obtenir des informations concernant le service : *${service.title}*.\n\nImage de référence :\n${baseUrl}${service.image}`;
             const encodedText = encodeURIComponent(textMessage);
@@ -136,14 +131,14 @@ export default function Services() {
 
             return (
               <div
-                key={index}
+                key={service.title}
                 className={`bg-white rounded-2xl overflow-hidden border border-slate-200/70 shadow-sm hover:border-[#14a992]/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-700 ease-out flex flex-col justify-between group transform ${
                   isVisible
                     ? "translate-y-0 opacity-100 scale-100"
                     : "translate-y-16 opacity-0 scale-95"
                 }`}
                 style={{
-                  transitionDelay: isVisible ? service.delay : "0s",
+                  transitionDelay: isVisible ? `${delayMs}ms` : "0ms",
                 }}
               >
                 <div>
@@ -188,7 +183,7 @@ export default function Services() {
                     href={whatsappServiceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-[#14a992] text-sm font-bold text-white transition-all duration-300 overflow-hidden shadow-md shadow-[#14a992]/20 hover:bg-[#108c79] hover:shadow-lg hover:shadow-[#14a992]/30 active:scale-98 group/btn"
+                    className="relative inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-[#14a992] text-sm font-bold text-white transition-all duration-300 overflow-hidden shadow-md shadow-[#14a992]/20 hover:bg-[#108c79] hover:shadow-lg hover:shadow-[#14a992]/30 active:scale-[0.98] group/btn"
                   >
                     {/* Shine Effect */}
                     <span className="absolute inset-0 bg-white/20 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 pointer-events-none" />

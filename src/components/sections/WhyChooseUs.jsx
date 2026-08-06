@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import * as Icons from "lucide-react";
+import { Clock, ShieldCheck, FileText, Wrench, Lightbulb } from "lucide-react";
 import {
   Container,
   Section,
@@ -16,32 +16,28 @@ import {
 
 const advantagesData = [
   {
-    icon: "Clock",
+    icon: Clock,
     title: "Intervention Rapide",
     description:
       "Nous nous efforçons d'intervenir dans les meilleurs délais afin de répondre efficacement à votre demande.",
-    delay: "0.1s",
   },
   {
-    icon: "ShieldCheck",
+    icon: ShieldCheck,
     title: "Professionnalisme",
     description:
       "Des interventions réalisées avec soin, dans le respect des bonnes pratiques et avec un matériel adapté.",
-    delay: "0.25s",
   },
   {
-    icon: "FileText",
+    icon: FileText,
     title: "Devis Clair",
     description:
       "Une estimation transparente est proposée avant le début des travaux, selon la nature de l'intervention.",
-    delay: "0.4s",
   },
   {
-    icon: "Wrench",
+    icon: Wrench,
     title: "Équipements Adaptés",
     description:
       "Nous utilisons des équipements professionnels, notamment l'hydrocurage et l'inspection par caméra lorsque cela est nécessaire.",
-    delay: "0.55s",
   },
 ];
 
@@ -71,7 +67,7 @@ export default function WhyChooseUs() {
     <Section
       id="pourquoi-nous"
       ref={sectionRef}
-      className="bg-white relative overflow-hidden py-20"
+      className="bg-white relative overflow-hidden py-20 md:py-28"
     >
       {/* Background Decorative Gradient Blurs */}
       <div className="absolute top-1/2 left-[-5%] w-80 h-80 bg-[#14a992]/5 rounded-full blur-3xl pointer-events-none" />
@@ -119,7 +115,7 @@ export default function WhyChooseUs() {
               }`}
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-base">💡</span>
+                <Lightbulb className="w-5 h-5 text-[#14a992]" />
                 <h4 className="text-sm font-bold text-[#14a992] tracking-wide">
                   Notre Engagement
                 </h4>
@@ -136,18 +132,19 @@ export default function WhyChooseUs() {
           {/* Bloc de Droite - Grid Cards */}
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
             {advantagesData.map((advantage, index) => {
-              const TargetIcon = Icons[advantage.icon] || Icons.ShieldCheck;
+              const IconComponent = advantage.icon;
+              const delayMs = 100 + index * 150;
 
               return (
                 <div
-                  key={index}
+                  key={advantage.title}
                   className={`group bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#14a992]/40 hover:-translate-y-2 transition-all duration-700 ease-out relative overflow-hidden transform ${
                     isVisible
                       ? "translate-y-0 opacity-100 scale-100"
                       : "translate-y-16 opacity-0 scale-95"
                   }`}
                   style={{
-                    transitionDelay: isVisible ? advantage.delay : "0s",
+                    transitionDelay: isVisible ? `${delayMs}ms` : "0ms",
                   }}
                 >
                   {/* Subtle Corner Glow on Hover */}
@@ -155,7 +152,7 @@ export default function WhyChooseUs() {
 
                   {/* Icon Container */}
                   <div className="mb-5 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <IconBox icon={TargetIcon} variant="lime" />
+                    <IconBox icon={IconComponent} variant="lime" />
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#14a992] transition-colors duration-200">

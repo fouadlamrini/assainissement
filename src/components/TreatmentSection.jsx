@@ -6,10 +6,15 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { treatmentFeatures } from "../data/solutionsData";
+import { Section, Container } from "../ui/BaseComponents";
+import { treatmentFeatures } from "../../data/solutionsData";
+
+const FALLBACK_TREATMENT_IMAGE =
+  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80";
 
 export default function TreatmentSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [imgSrc, setImgSrc] = useState("/assets/protection.jpg");
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -30,13 +35,15 @@ export default function TreatmentSection() {
     return () => observer.disconnect();
   }, []);
 
+  const hasFeatures = Array.isArray(treatmentFeatures) && treatmentFeatures.length > 0;
+
   return (
-    <section
+    <Section
       id="traitements"
       ref={sectionRef}
-      className="py-16 sm:py-20 bg-slate-900 text-white scroll-mt-20 overflow-hidden"
+      className="bg-slate-900 text-white"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Header Animé */}
         <div
           className={`text-center max-w-3xl mx-auto mb-12 sm:mb-16 transition-all duration-700 ease-out transform ${
@@ -55,7 +62,7 @@ export default function TreatmentSection() {
 
           <div className="w-16 h-1 bg-[#14a992] mx-auto mt-3 rounded-full" />
 
-          <p className="mt-4 text-base sm:text-lg text-slate-300">
+          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
             Nous intervenons pour le traitement des insectes nuisibles dans les
             habitations, les locaux professionnels, les restaurants, les hôtels
             et les espaces collectifs avec des solutions adaptées à chaque
@@ -68,39 +75,40 @@ export default function TreatmentSection() {
           
           {/* Features Column */}
           <div className="lg:col-span-7 space-y-6">
-            {treatmentFeatures.map((feat, idx) => {
-              const delay = `${idx * 0.15 + 0.1}s`;
+            {hasFeatures &&
+              treatmentFeatures.map((feat, idx) => {
+                const delay = `${idx * 0.15 + 0.1}s`;
 
-              return (
-                <div
-                  key={idx}
-                  className={`p-6 rounded-2xl bg-slate-800/80 border border-slate-700/60 hover:border-[#14a992]/60 hover:bg-slate-800 transition-all duration-500 ease-out transform ${
-                    isVisible
-                      ? "translate-x-0 opacity-100"
-                      : "-translate-x-12 opacity-0"
-                  }`}
-                  style={{
-                    transitionDelay: isVisible ? delay : "0s",
-                  }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-[#14a992]/20 text-[#14a992] flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-sm">
-                      ✓
-                    </div>
+                return (
+                  <div
+                    key={idx}
+                    className={`p-6 rounded-2xl bg-slate-800/80 border border-slate-700/60 hover:border-[#14a992]/60 hover:bg-slate-800 transition-all duration-500 ease-out transform ${
+                      isVisible
+                        ? "translate-x-0 opacity-100"
+                        : "-translate-x-12 opacity-0"
+                    }`}
+                    style={{
+                      transitionDelay: isVisible ? delay : "0s",
+                    }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-[#14a992]/20 text-[#14a992] flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5 shadow-sm">
+                        ✓
+                      </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-white">
-                        {feat.title}
-                      </h3>
+                      <div>
+                        <h3 className="text-lg font-bold text-white">
+                          {feat.title}
+                        </h3>
 
-                      <p className="text-sm text-slate-300 mt-1 leading-relaxed">
-                        {feat.description}
-                      </p>
+                        <p className="text-sm text-slate-300 mt-1 leading-relaxed">
+                          {feat.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
 
             {/* Callout Box */}
             <div
@@ -126,13 +134,14 @@ export default function TreatmentSection() {
               }`}
             >
               <img
-                src="/assets/protection.jpg"
+                src={imgSrc}
                 alt="Service de désinsectisation"
-                className="w-full h-95 object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
+                onError={() => setImgSrc(FALLBACK_TREATMENT_IMAGE)}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none" />
 
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="inline-block px-3 py-1 bg-[#85ca51] text-white text-xs font-semibold rounded mb-2">
@@ -152,7 +161,7 @@ export default function TreatmentSection() {
           </div>
 
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

@@ -18,7 +18,6 @@ const testimonialsData = [
       "Nous avons fait appel à cette entreprise pour un problème de canalisation bouchée. L'intervention s'est bien déroulée et le problème a été résolu rapidement.",
     rating: 5,
     date: "Client récent",
-    delay: "0.1s",
   },
   {
     name: "Syndic d'immeuble",
@@ -27,7 +26,6 @@ const testimonialsData = [
       "Nous sollicitons régulièrement cette équipe pour l'entretien de nos installations. Les interventions sont organisées et le travail est réalisé avec sérieux.",
     rating: 5,
     date: "Client professionnel",
-    delay: "0.25s",
   },
   {
     name: "M. K.",
@@ -36,7 +34,6 @@ const testimonialsData = [
       "L'équipe a identifié l'origine du problème et proposé une solution adaptée. Les explications étaient claires et l'intervention s'est déroulée dans de bonnes conditions.",
     rating: 5,
     date: "Client récent",
-    delay: "0.4s",
   },
 ];
 
@@ -66,7 +63,7 @@ export default function Testimonials() {
     <Section
       id="avis"
       ref={sectionRef}
-      className="bg-slate-50/60 border-t border-slate-100 overflow-hidden py-20"
+      className="bg-slate-50/60 border-t border-slate-100 overflow-hidden py-20 md:py-28 relative"
     >
       <Container>
         {/* Section Title Animé */}
@@ -86,24 +83,28 @@ export default function Testimonials() {
 
         {/* Testimonial Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-12">
-          {testimonialsData.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`transition-all duration-700 ease-out transform ${
-                isVisible
-                  ? "translate-y-0 opacity-100 scale-100"
-                  : "translate-y-12 opacity-0 scale-95"
-              }`}
-              style={{
-                transitionDelay: isVisible ? testimonial.delay : "0s",
-              }}
-            >
-              <TestimonialCard
-                testimonial={testimonial}
-                className="bg-white shadow-md shadow-slate-100/50 hover:border-[#14a992]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              />
-            </div>
-          ))}
+          {testimonialsData.map((testimonial, index) => {
+            const delayMs = 100 + index * 150;
+
+            return (
+              <div
+                key={testimonial.name}
+                className={`transition-all duration-700 ease-out transform ${
+                  isVisible
+                    ? "translate-y-0 opacity-100 scale-100"
+                    : "translate-y-12 opacity-0 scale-95"
+                }`}
+                style={{
+                  transitionDelay: isVisible ? `${delayMs}ms` : "0ms",
+                }}
+              >
+                <TestimonialCard
+                  testimonial={testimonial}
+                  className="bg-white shadow-md shadow-slate-100/50 hover:border-[#14a992]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between"
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* Bottom Banner (Pop & Scale In) */}

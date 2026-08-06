@@ -2,44 +2,44 @@
  * src/components/sections/FAQ.jsx
  *
  * Section Foire Aux Questions interactive (Accordéon).
- * Interactive & Scroll-Triggered Staggered Animations.
+ * SEO Optimized with Schema.org JSON-LD & Accessible WAI-ARIA Accordion.
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
-import { Container, Section, SectionTitle } from "../ui/BaseComponents";
+import { ChevronDown, HelpCircle, MessageCircleQuestion } from "lucide-react";
+import { Container, Section, SectionTitle, PhoneButton, WhatsAppButton } from "../ui/BaseComponents";
 import { cn } from "../../utils/cn";
 
 const faqData = [
   {
     question: "Comment est calculé le coût d'une intervention ?",
     answer:
-      "Le tarif dépend de la nature de l'intervention, de l'accessibilité des installations et des travaux à réaliser. Une estimation est communiquée avant toute intervention lorsque cela est nécessaire.",
-    delay: "0.1s",
+      "Le tarif dépend de la nature de l'intervention, de l'accessibilité des installations et des travaux à réaliser. Une estimation transparente est communiquée gratuitement avant toute intervention.",
+    delay: "100ms",
   },
   {
     question: "Dans quels délais pouvez-vous intervenir ?",
     answer:
-      "Nous faisons notre maximum pour intervenir dans les meilleurs délais, en fonction de votre localisation, de l'urgence de la situation et de la disponibilité de nos équipes.",
-    delay: "0.2s",
+      "Nous faisons notre maximum pour intervenir en urgence dans les meilleurs délais, en fonction de votre localisation et de la disponibilité de nos équipes équipées au Maroc.",
+    delay: "200ms",
   },
   {
     question: "Quels types d'installations prenez-vous en charge ?",
     answer:
-      "Nous intervenons sur les éviers, lavabos, WC, douches, baignoires, canalisations, regards, fosses septiques, bacs à graisse et différents réseaux d'assainissement pour les particuliers comme pour les professionnels.",
-    delay: "0.3s",
+      "Nous intervenons sur les éviers, lavabos, WC, douches, baignoires, canalisations, regards, fosses septiques, bacs à graisse et réseaux d'assainissement pour particuliers et professionnels.",
+    delay: "300ms",
   },
   {
     question: "Utilisez-vous du matériel professionnel ?",
     answer:
-      "Oui. Selon les besoins de l'intervention, nous utilisons des équipements adaptés tels que l'hydrocurage ou l'inspection par caméra afin de faciliter le diagnostic et le traitement du problème.",
-    delay: "0.4s",
+      "Oui. Selon la situation, nous utilisons des équipements de haute technologie tels que l'hydrocurage à haute pression et l'inspection par caméra vidéo pour un diagnostic précis.",
+    delay: "400ms",
   },
   {
-    question: "Comment demander une intervention ?",
+    question: "Comment demander une intervention ou un devis ?",
     answer:
-      "Vous pouvez nous contacter par téléphone ou via WhatsApp. Après avoir pris connaissance de votre demande, nous vous orienterons vers la solution la plus adaptée et organiserons l'intervention.",
-    delay: "0.5s",
+      "Vous pouvez nous contacter directement par téléphone ou via WhatsApp. Notre équipe étudiera votre demande et organisera l'intervention rapidement.",
+    delay: "500ms",
   },
 ];
 
@@ -53,6 +53,15 @@ export default function FAQ() {
   };
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -70,10 +79,30 @@ export default function FAQ() {
     return () => observer.disconnect();
   }, []);
 
+  // Structural Schema.org Data for FAQ Page (SEO Rich Snippets)
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+
   return (
-    <Section id="faq" ref={sectionRef} className="bg-white py-20 overflow-hidden">
+    <Section id="faq" ref={sectionRef} className="bg-slate-50/50 py-20 overflow-hidden border-t border-slate-100">
+      {/* Schema.org FAQ Data Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
+
       <Container>
-        {/* Title Header Animé */}
+        {/* Title Header */}
         <div
           className={`transition-all duration-700 ease-out transform ${
             isVisible
@@ -83,7 +112,7 @@ export default function FAQ() {
         >
           <SectionTitle
             subtitle="Questions Fréquentes"
-            title="Tout savoir sur nos interventions"
+            title="Tout savoir sur nos interventions d'assainissement"
             centered={true}
           />
         </div>
@@ -92,6 +121,8 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto space-y-4 mt-12">
           {faqData.map((faq, index) => {
             const isOpen = openIndex === index;
+            const buttonId = `faq-button-${index}`;
+            const panelId = `faq-answer-${index}`;
 
             return (
               <div
@@ -102,27 +133,29 @@ export default function FAQ() {
                     ? "translate-y-0 opacity-100 scale-100"
                     : "translate-y-12 opacity-0 scale-95",
                   isOpen
-                    ? "bg-[#14a992]/5 border-[#14a992]/40 shadow-sm"
-                    : "bg-white border-slate-100 hover:border-slate-200"
+                    ? "bg-white border-[#14a992]/40 shadow-md ring-1 ring-[#14a992]/20"
+                    : "bg-white border-slate-200/80 hover:border-slate-300"
                 )}
                 style={{
-                  transitionDelay: isVisible ? faq.delay : "0s",
+                  transitionDelay: isVisible ? faq.delay : "0ms",
                 }}
               >
                 <button
+                  id={buttonId}
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none group cursor-pointer"
+                  className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#14a992] focus-visible:ring-offset-2 rounded-2xl group cursor-pointer"
                   aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${index}`}
+                  aria-controls={panelId}
                 >
                   <div className="flex items-start gap-4 pr-4">
                     <HelpCircle
                       className={cn(
-                        "w-5 h-5 mt-0.5 flex-shrink-0 transition-colors duration-200",
+                        "w-5 h-5 mt-0.5 shrink-0 transition-colors duration-200",
                         isOpen
                           ? "text-[#14a992]"
                           : "text-slate-400 group-hover:text-[#14a992]"
                       )}
+                      aria-hidden="true"
                     />
 
                     <span
@@ -137,31 +170,55 @@ export default function FAQ() {
 
                   <div
                     className={cn(
-                      "w-8 h-8 rounded-lg flex items-center justify-center bg-slate-50 border border-slate-100 text-slate-500 transition-transform duration-300 flex-shrink-0",
+                      "w-8 h-8 rounded-lg flex items-center justify-center bg-slate-50 border border-slate-200 text-slate-500 transition-transform duration-300 shrink-0",
                       isOpen &&
-                        "transform rotate-180 bg-[#14a992]/10 border-[#14a992]/30 text-[#14a992]"
+                        "rotate-180 bg-[#14a992]/10 border-[#14a992]/30 text-[#14a992]"
                     )}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4" aria-hidden="true" />
                   </div>
                 </button>
 
                 <div
-                  id={`faq-answer-${index}`}
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
                   className={cn(
                     "transition-all duration-300 ease-in-out origin-top",
                     isOpen
-                      ? "max-h-[500px] opacity-100 border-t border-[#14a992]/15"
+                      ? "max-h-[500px] opacity-100 border-t border-slate-100"
                       : "max-h-0 opacity-0 pointer-events-none"
                   )}
                 >
-                  <div className="p-5 md:p-6 text-sm sm:text-base text-slate-600 leading-relaxed bg-white/50">
+                  <div className="p-5 md:p-6 text-sm sm:text-base text-slate-600 leading-relaxed bg-slate-50/40">
                     {faq.answer}
                   </div>
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Extra Contact CTA Box */}
+        <div 
+          className={cn(
+            "max-w-xl mx-auto mt-12 text-center p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-700 delay-500 transform",
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          )}
+        >
+          <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#14a992]/10 text-[#14a992] mb-3">
+            <MessageCircleQuestion className="w-5 h-5" />
+          </div>
+          <h3 className="text-base font-bold text-slate-900 mb-1">
+            Vous avez une autre question ?
+          </h3>
+          <p className="text-sm text-slate-500 mb-5">
+            Notre équipe est disponible 24/7 pour vous conseiller et répondre à vos demandes particulières.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <PhoneButton size="sm" />
+            <WhatsAppButton size="sm" />
+          </div>
         </div>
       </Container>
     </Section>

@@ -6,6 +6,9 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
+import { ArrowRight, Phone, FileText } from "lucide-react";
+import { Container, Button, PhoneButton } from "../ui/BaseComponents";
+import { companyConfig } from "../../data/siteData";
 
 export default function CtaSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,7 +22,7 @@ export default function CtaSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     if (sectionRef.current) {
@@ -32,15 +35,17 @@ export default function CtaSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 bg-[#14a992] text-white relative overflow-hidden"
+      className="py-16 md:py-24 bg-[#14a992] text-white relative overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+      {/* Background Radial Pattern & Decorative Glows */}
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#85ca51]/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Container className="relative z-10 text-center">
         {/* Title */}
         <h2
-          className={`text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight transition-all duration-700 ease-out transform ${
+          className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight transition-all duration-700 ease-out transform ${
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
@@ -51,7 +56,7 @@ export default function CtaSection() {
 
         {/* Subtitle / Description */}
         <p
-          className={`mt-4 text-base sm:text-lg text-emerald-50 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-150 ease-out transform ${
+          className={`mt-4 sm:mt-6 text-base sm:text-lg text-emerald-50 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-150 ease-out transform ${
             isVisible
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
@@ -64,27 +69,34 @@ export default function CtaSection() {
 
         {/* Action Buttons */}
         <div
-          className={`mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ease-out transform ${
+          className={`mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ease-out transform ${
             isVisible
               ? "scale-100 opacity-100 translate-y-0"
               : "scale-95 opacity-0 translate-y-6"
           }`}
         >
-          <a
-            href="/#contact"
-            className="w-full sm:w-auto px-8 py-3.5 bg-white text-[#14a992] font-bold rounded-xl shadow-lg hover:bg-slate-50 hover:scale-105 active:scale-95 transition-all duration-300 text-center"
+          {/* Bouton Devis */}
+          <Button
+            as="a"
+            href="#contact"
+            variant="outline"
+            size="lg"
+            className="w-full sm:w-auto border-none bg-white text-[#14a992] hover:bg-slate-50 hover:text-[#118f7c] shadow-xl hover:scale-105 gap-2.5 font-bold"
+            aria-label="Demander un devis gratuit pour vos travaux d'assainissement"
           >
-            Demander un devis gratuit
-          </a>
+            <FileText className="w-5 h-5" />
+            <span>Demander un devis gratuit</span>
+            <ArrowRight className="w-4 h-4 ml-1" />
+          </Button>
 
-          <a
-            href="tel:+212668029443"
-            className="w-full sm:w-auto px-8 py-3.5 bg-[#118f7c] hover:bg-[#0e7868] hover:scale-105 active:scale-95 text-white font-semibold rounded-xl border border-white/20 transition-all duration-300 text-center shadow-md"
-          >
-            Nous appeler
-          </a>
+          {/* Bouton Appel Direct */}
+          <PhoneButton
+            size="lg"
+            variant="dark"
+            className="w-full sm:w-auto bg-[#118f7c] hover:bg-[#0e7868] border border-white/20 shadow-lg hover:scale-105 text-white"
+          />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -1,14 +1,19 @@
 /**
  * src/components/sections/Statistics.jsx
- * 
+ *
  * Section Statistique & Chiffres Clés.
- * Interactive & Scroll-Triggered Count-Up + Staggered Pop Animations.
+ * Section des statistiques avec animation de comptage au défilement.
  */
 
 import React, { useEffect, useRef, useState } from "react";
 import { Container, Section } from "../ui/BaseComponents";
 
-// Custom Hook l-Count-Up Animation
+/**
+ * Hook personnalisé pour l'animation de comptage (Count-Up)
+ * @param {number} targetValue - La valeur cible à atteindre
+ * @param {number} duration - Durée de l'animation en ms (défaut: 2000ms)
+ * @param {boolean} start - Déclencheur de l'animation
+ */
 function useCountUp(targetValue, duration = 2000, start = false) {
   const [count, setCount] = useState(0);
 
@@ -19,10 +24,10 @@ function useCountUp(targetValue, duration = 2000, start = false) {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      
-      // Easing function (easeOutExpo) باش تـجي l-animation smooth f-l-akheer
+
+      // Fonction d'assouplissement (easeOutExpo) pour une finition fluide
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      
+
       setCount(easeProgress * targetValue);
 
       if (progress < 1) {
@@ -30,20 +35,24 @@ function useCountUp(targetValue, duration = 2000, start = false) {
       }
     };
 
-    window.requestAnimationFrame(step);
+    const animationFrame = window.requestAnimationFrame(step);
+    return () => window.cancelAnimationFrame(animationFrame);
   }, [targetValue, duration, start]);
 
   return count;
 }
 
-// Single Stat Counter Component
+// Composant pour chaque chiffre statistique
 function StatItem({ stat, isVisible, index }) {
   const count = useCountUp(stat.numberTarget, 2000, isVisible);
 
-  // Formatter l-chiffre 3la ḥsab l-format dyalu (Decimals aw Integers)
+  // Formatage du chiffre (décimal ou entier)
   const formattedCount = stat.isDecimal
     ? count.toFixed(1)
     : Math.floor(count);
+
+  // Calcul dynamique du délai d'apparition
+  const delayMs = 100 + index * 150;
 
   return (
     <div
@@ -53,20 +62,21 @@ function StatItem({ stat, isVisible, index }) {
           : "scale-75 opacity-0 translate-y-8"
       }`}
       style={{
-        transitionDelay: isVisible ? stat.delay : "0s",
+        transitionDelay: isVisible ? `${delayMs}ms` : "0ms",
       }}
+      aria-label={`${stat.prefix}${stat.numberTarget}${stat.suffix} ${stat.label}`}
     >
-      {/* Chiffre animé en typo Serif massive */}
-      <span className="text-4xl sm:text-5xl font-black font-serif tracking-tight text-white drop-shadow-sm">
+      {/* Valeur numérique animée */}
+      <span className="text-4xl sm:text-5xl font-black font-serif tracking-tight text-white drop-shadow-sm select-none">
         {stat.prefix}
         {formattedCount}
         {stat.suffix}
       </span>
 
-      {/* Séparateur minimaliste */}
+      {/* Séparateur visuel */}
       <div className="h-0.5 w-8 bg-white/80 rounded-full transition-all duration-300 group-hover:w-12 group-hover:bg-white" />
 
-      {/* Intitulé clair et lisible */}
+      {/* Libellé de la statistique */}
       <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-50 max-w-[180px]">
         {stat.label}
       </span>
@@ -81,7 +91,6 @@ const statisticsData = [
     suffix: "",
     isDecimal: false,
     label: "Interventions Réussies",
-    delay: "0.1s",
   },
   {
     numberTarget: 30,
@@ -89,7 +98,6 @@ const statisticsData = [
     suffix: " min",
     isDecimal: false,
     label: "Temps de Réponse Moyen",
-    delay: "0.25s",
   },
   {
     numberTarget: 100,
@@ -97,7 +105,6 @@ const statisticsData = [
     suffix: "%",
     isDecimal: false,
     label: "Devis Transparents",
-    delay: "0.4s",
   },
   {
     numberTarget: 4.9,
@@ -105,7 +112,6 @@ const statisticsData = [
     suffix: "/5",
     isDecimal: true,
     label: "Note Google Maps",
-    delay: "0.55s",
   },
 ];
 
@@ -138,11 +144,11 @@ export default function Statistics() {
       className="bg-gradient-to-r from-[#14a992] to-[#118f7c] text-white py-16 md:py-20 relative overflow-hidden"
     >
       <Container>
-        {/* Grille responsive des indicateurs de performance */}
+        {/* Grille responsive des statistiques */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
           {statisticsData.map((stat, index) => (
             <StatItem
-              key={index}
+              key={stat.label}
               stat={stat}
               isVisible={isVisible}
               index={index}

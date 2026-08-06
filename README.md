@@ -1,16 +1,74 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```
+assainissement
+├─ eslint.config.js
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ public
+│  └─ assets
+│     ├─ camera.jpg
+│     ├─ camera_inspection.jpg
+│     ├─ collectif.jpg
+│     ├─ curage.jpg
+│     ├─ Debouchage.jpg
+│     ├─ depannage.jpg
+│     ├─ logo.png
+│     ├─ logo2.png
+│     ├─ logo3.png
+│     ├─ pompes.jpg
+│     ├─ protection.jpg
+│     ├─ recyclage.jpg
+│     ├─ Tuyauterie.jpg
+│     ├─ vidange.jpg
+│     └─ whatsapp.jpg
+├─ README.md
+├─ src
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ components
+│  │  ├─ common
+│  │  │  └─ FloatingTriggers.jsx
+│  │  ├─ CtaSection.jsx
+│  │  ├─ EquipmentSection.jsx
+│  │  ├─ layout
+│  │  │  ├─ Footer.jsx
+│  │  │  └─ Navbar.jsx
+│  │  ├─ legal
+│  │  │  ├─ PrivacySection.jsx
+│  │  │  └─ PrivacyTitle.jsx
+│  │  ├─ PageHeader.jsx
+│  │  ├─ sections
+│  │  │  ├─ ContactCTA.jsx
+│  │  │  ├─ FAQ.jsx
+│  │  │  ├─ Hero.jsx
+│  │  │  ├─ Process.jsx
+│  │  │  ├─ Services.jsx
+│  │  │  ├─ Statistics.jsx
+│  │  │  ├─ Testimonials.jsx
+│  │  │  └─ WhyChooseUs.jsx
+│  │  ├─ StepSection.jsx
+│  │  ├─ TreatmentSection.jsx
+│  │  └─ ui
+│  │     ├─ BaseComponents.jsx
+│  │     └─ Cards.jsx
+│  ├─ data
+│  │  ├─ cgvData.js
+│  │  ├─ legalData.js
+│  │  ├─ privacyData.js
+│  │  ├─ siteData.js
+│  │  └─ solutionsData.js
+│  ├─ index.css
+│  ├─ main.jsx
+│  ├─ pages
+│  │  ├─ ConditionsGeneralesVente.jsx
+│  │  ├─ Home.jsx
+│  │  ├─ MentionsLegales.jsx
+│  │  ├─ PrivacyPolicy.jsx
+│  │  └─ SolutionsTechniques.jsx
+│  └─ utils
+│     └─ cn.js
+├─ vercel.json
+└─ vite.config.js
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```

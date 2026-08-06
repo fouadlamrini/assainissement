@@ -1,13 +1,96 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-   <link rel="icon" type="image/png" href="/assets/logo2.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>assainissement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#14a992" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Fallback Title & Basic SEO Meta Tags -->
+    <title>Letraci | Service d'Assainissement, Débouchage & Curage de Canalisations</title>
+    <meta
+      name="description"
+      content="Letraci est votre expert en assainissement, débouchage de canalisations haute pression, curage et nettoyage de fosses septiques. Service rapide 24/7."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Resource Hints / Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Favicons & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo2.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo2.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Open Graph Default Fallbacks -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Letraci Assainissement" />
+    <meta property="og:title" content="Letraci | Service d'Assainissement & Débouchage Professionnel" />
+    <meta
+      property="og:description"
+      content="Intervention rapide pour débouchage de canalisations, curage et assainissement. Service professionnel Letraci 24/7."
+    />
+    <meta property="og:image" content="/assets/logo2.png" />
+
+    <!-- Twitter Card Default Fallbacks -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Letraci | Service d'Assainissement & Débouchage Professionnel" />
+    <meta
+      name="twitter:description"
+      content="Intervention rapide pour débouchage de canalisations, curage et assainissement. Service professionnel Letraci 24/7."
+    />
+    <meta name="twitter:image" content="/assets/logo2.png" />
+
+    <!-- Données Structurées Schema.org pour le référencement local (Local Business SEO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "PlumbingService",
+        "name": "Letraci",
+        "image": "https://assainissement-theta.vercel.app/assets/logo2.png",
+        "url": "https://assainissement-theta.vercel.app",
+        "priceRange": "$$",
+        "description": "Expertise en assainissement, débouchage de canalisations haute pression, curage et nettoyage de fosses septiques. Intervention rapide 24/7.",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      }
+    </script>
   </head>
-  <body>
+
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-[#14a992] selection:text-white">
+    <!-- Accessibility Skip Link -->
+    <a
+      href="#contenu-principal"
+      className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-[#14a992] focus:text-white"
+    >
+      Aller au contenu principal
+    </a>
+
     <div id="root"></div>
+
+    <!-- Fallback for JavaScript Disabled Browsers -->
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: sans-serif; background-color: #fef2f2; color: #991b1b;">
+        <h2>JavaScript est désactivé sur votre navigateur</h2>
+        <p>Veuillez activer JavaScript pour utiliser pleinement les services en ligne de Letraci Assainissement.</p>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

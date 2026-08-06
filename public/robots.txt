@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow access to private or static system builds
+Disallow: /assets/*.json$
+Disallow: /*.config.js$
+
+# Host declaration
+Host: https://www.letraci.ma
+
+# XML Sitemap declaration
+Sitemap: https://www.letraci.ma/sitemap.xml
