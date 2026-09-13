@@ -10,14 +10,37 @@ const ConditionsGeneralesVente = lazy(() => import("./pages/ConditionsGeneralesV
 
 /**
  * ScrollToTop utility component
- * Ensures page viewport resets to top-left on route changes
+ * Resets the page to the top on route changes, or scrolls to the
+ * matching section (hash anchor) when the URL contains one.
+ * Retries briefly so the target exists even with lazy-loaded pages.
  */
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    let retryTimer = null;
+
+    if (hash) {
+      const id = decodeURIComponent(hash.slice(1));
+      const scrollToHash = (attempt) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+        if (attempt < 20) {
+          retryTimer = setTimeout(() => scrollToHash(attempt + 1), 50);
+        }
+      };
+      scrollToHash(0);
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    return () => {
+      if (retryTimer) clearTimeout(retryTimer);
+    };
+  }, [pathname, hash, key]);
 
   return null;
 }
